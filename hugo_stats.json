@@ -1,0 +1,63 @@
+{
+  "htmlElements": {
+    "tags": [
+      "a",
+      "body",
+      "button",
+      "circle",
+      "div",
+      "footer",
+      "h1",
+      "head",
+      "header",
+      "html",
+      "i",
+      "img",
+      "li",
+      "line",
+      "link",
+      "main",
+      "meta",
+      "nav",
+      "noscript",
+      "path",
+      "rect",
+      "script",
+      "span",
+      "style",
+      "svg",
+      "title",
+      "ul"
+    ],
+    "classes": [
+      "fa",
+      "fa-file-text",
+      "fa-home",
+      "fa-microchip",
+      "fa-raspberry-pi",
+      "fa-wifi",
+      "footer",
+      "header",
+      "list",
+      "logo",
+      "logo-switches",
+      "main",
+      "nav",
+      "not-found",
+      "page-header",
+      "profile",
+      "profile_inner",
+      "social-icons",
+      "terms-tags",
+      "top-link"
+    ],
+    "ids": [
+      "menu",
+      "moon",
+      "sun",
+      "theme-toggle",
+      "top",
+      "top-link"
+    ]
+  }
+}

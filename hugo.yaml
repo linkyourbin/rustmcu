@@ -1,0 +1,179 @@
+baseURL: https://linkyourbin.github.io/rustmcu/
+languageCode: en-us
+title: RUST MCU BLOG
+theme: PaperMod
+
+build:
+  useResourceCacheWhen: always
+  writeStats: true
+
+minify:
+  minifyOutput: true
+  tdewolff:
+    html:
+      keepWhitespace: false
+
+params:
+  author: linkyourbin
+  keywords:
+    - rust
+    - embedded
+    - mcu
+    - microcontroller
+    - esp32
+    - stm32
+    - risc-v
+    - rp2040
+    - rp2350
+    - no_std
+    - embedded-hal
+    - cortex-m
+    - rust-embedded
+    - rust on mcu
+    - embassy
+  ShowBreadCrumbs: true
+  showReadingTime: true
+  defaultTheme: auto
+  displayFullLangName: true
+  hideFooter: false
+  hideVersion: false
+  showCodeCopyButtons: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  ShowShareButtons: false
+  comments: true
+  hidemeta: false
+  hideSummary: true
+  showPostNavLinks: true
+  useHugoToc: true
+  disableAnchoredHeadings: false
+  mainSections:
+    - mainpage
+  colorScheme: auto
+  favicon: favicon.ico
+  enableTwemoji: true
+  enableEmojiPicker: true
+  editPost:
+    url: https://github.com/linkyourbin/linkyourbin.github.io/edit/main/content/
+    text: error fix
+
+  
+  profileMode:
+    enabled: true
+    title: "linkyourbin"  
+    subtitle: "嵌入式爱好者，业余玩家🦀🦀"  
+    imageUrl: "images/avatar.svg"  
+    imageWidth: 360
+    imageHeight: 360
+
+  socialIcons:  
+    - name: github
+      url: "https://github.com/linkyourbin"
+    - name: bilibili
+      url: "https://space.bilibili.com/3493142393260061"
+
+
+menu:
+  main:
+    - name: Home
+      url: /categories/home
+      weight: 1
+      pre: "<i class='fa fa-home'></i>"
+    - name: Miscellanea
+      url: /categories/miscellanea/
+      weight: 2
+      pre: "<i class='fa fa-file-text'></i>"
+    - name: STM32
+      url: /categories/stm32/
+      weight: 3
+      pre: "<i class='fa fa-microchip'></i>"
+    - name: ESP32
+      url: /categories/esp32/
+      weight: 4
+      pre: "<i class='fa fa-wifi'></i>"
+    - name: RP Pico
+      url: /categories/rp/
+      weight: 5
+      pre: "<i class='fa fa-raspberry-pi'></i>"
+
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+  author: authors
+
+pagination:
+  paginate: 8
+  paginatePath: page
+
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: false
+    style: dracula
+    tabWidth: 4
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    endLevel: 4
+    startLevel: 1
+  inlineShortcodes:
+    bilibili: shortcodes/bilibili.html
+  math:
+    enable: true
+    engine: katex
+  mermaid:
+    enable: true
+    version: "9.1.3"
+    options:
+      theme: "dark"
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+  page:
+    - HTML
+    - RSS
+  section:
+    - HTML
+    - RSS
+
+sitemap:
+  changefreq: weekly
+  filename: sitemap.xml
+  priority: 0.5
+
+imaging:
+  resampleFilter: CatmullRom
+  quality: 75
+  anchor: Center
+
+security:
+  exec:
+    allow:
+      - ^dart-sass-embedded$
+      - ^go$
+      - ^npx$
+      - ^postcss$
+    osEnv:
+      - PATH
+      - PATHEXT
+      - SystemRoot
+      - TMPDIR
+      - TEMP
+      - TMP
+  funcs:
+    getenv:
+      - ^HUGO_
+  http:
+    methods:
+      - GET
+      - POST
+    urls:
+      - .*
