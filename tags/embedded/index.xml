@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Embedded on RUST MCU BLOG</title><link>https://linkyourbin.github.io/rustmcu/tags/embedded/</link><description>Recent content in Embedded on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Thu, 14 Aug 2025 19:00:25 +0800</lastBuildDate><atom:link href="https://linkyourbin.github.io/rustmcu/tags/embedded/index.xml" rel="self" type="application/rss+xml"/><item><title>Blinky</title><link>https://linkyourbin.github.io/rustmcu/rp/blinky/</link><pubDate>Thu, 14 Aug 2025 19:00:25 +0800</pubDate><guid>https://linkyourbin.github.io/rustmcu/rp/blinky/</guid><description/></item><item><title>Blinky</title><link>https://linkyourbin.github.io/rustmcu/esp32/blinky/</link><pubDate>Thu, 14 Aug 2025 19:00:19 +0800</pubDate><guid>https://linkyourbin.github.io/rustmcu/esp32/blinky/</guid><description/></item><item><title>博客概述</title><link>https://linkyourbin.github.io/rustmcu/home/intro/</link><pubDate>Thu, 14 Aug 2025 18:40:05 +0800</pubDate><guid>https://linkyourbin.github.io/rustmcu/home/intro/</guid><description>&lt;hr>
+&lt;h1 id="感谢阅读我的博客">感谢阅读我的博客🦀&lt;/h1>
+&lt;p>大概花三分钟时间介绍这个网站的用途。&lt;/p>
+&lt;blockquote>
+&lt;p>你能获得什么？&lt;/p>&lt;/blockquote>
+&lt;ul>
+&lt;li>基础的&lt;code>Rust&lt;/code>嵌入式知识。
+&lt;ul>
+&lt;li>防止劝退，不会从寄存器开发讲起，大多数时候，仅是演示模块的驱动编写，或是多个模块协调工作&lt;/li>
+&lt;li>相关的软件操作也会涉及到
+&lt;ul>
+&lt;li>&lt;code>vscode&lt;/code> ：快捷键，常用设置&lt;/li>
+&lt;li>&lt;code>bash&lt;/code> ：编写特定的自动化脚本&lt;/li>
+&lt;li>&lt;code>python&lt;/code> ：图像处理，简单&lt;code>GUI&lt;/code>快速实现，自动化脚本编写&lt;/li>
+&lt;li>&lt;code>probe-rs&lt;/code> ：调试嵌入式程序，不会花大篇幅来讲&lt;/li>
+&lt;li>&lt;code>STM32CubeMX&lt;/code> ：查看&lt;code>STM32&lt;/code>系列芯片的外设，&lt;code>PCB&lt;/code>设计时，很便捷&lt;/li>
+&lt;li>&lt;code>Adobe illustrator&lt;/code>：绘制开发板的板框，异形板更容易自定义（非必须，也可以用&lt;code>CAD&lt;/code>替代）&lt;/li>
+&lt;li>&lt;code>Anaconda&lt;/code> ：管理&lt;code>Python&lt;/code>开发环境，一个开发场景使用一个特定的&lt;code>Python&lt;/code>环境&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>学会设计简单的2~4层PCB，用于快速验证Demo，或是直接投入生产环境
+&lt;ul>
+&lt;li>&lt;code>KiCAD&lt;/code>&lt;/li>
+&lt;li>&lt;code>Altium Designer(trial version)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="关于作者">关于作者&lt;/h1>
+&lt;ul>
+&lt;li>我是一个业余的嵌入式开发爱好者
+&lt;ul>
+&lt;li>主要使用的开发板/MCU是
+&lt;ul>
+&lt;li>STM32&lt;/li>
+&lt;li>ESP32&lt;/li>
+&lt;li>RP 2040/235X Pico(2)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>我现在还是学生，尚未参加工作&lt;/li>
+&lt;li>建站的目的仅是记录，顺便分享&lt;/li>
+&lt;li>教程未必严谨，按需学习即可&lt;/li>
+&lt;/ul></description></item><item><title>Blinky</title><link>https://linkyourbin.github.io/rustmcu/stm32/blinky/</link><pubDate>Thu, 14 Aug 2025 18:39:34 +0800</pubDate><guid>https://linkyourbin.github.io/rustmcu/stm32/blinky/</guid><description>&lt;hr></description></item><item><title>Miscellanea</title><link>https://linkyourbin.github.io/rustmcu/miscellanea/miscellanea/</link><pubDate>Thu, 14 Aug 2025 18:37:26 +0800</pubDate><guid>https://linkyourbin.github.io/rustmcu/miscellanea/miscellanea/</guid><description/></item></channel></rss>
