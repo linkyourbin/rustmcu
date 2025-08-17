@@ -152,4 +152,8 @@ cargo binstall probe-rs-tools
 
 完成以上步骤之后，`Rust`嵌入式开发便与你再无交集，恭喜脱离苦海。
 
+# 视频版本，可以点击跳转到`Bilibili`观看
+
+{{< bilibili aid="114805734118868" bvid="BV1TV3qzbE87" cid="30883383076" p="1" >}}
+
 ---

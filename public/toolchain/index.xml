@@ -59,17 +59,17 @@
 &lt;ul>
 &lt;li>
 &lt;p>浏览器搜索并打开&lt;a href="rsproxy.cn">&lt;code>rsproxy.cn&lt;/code>&lt;/a>，可以看到其主页介绍的用法是&lt;code>Linux&lt;/code>/&lt;code>MAC&lt;/code>系统下的常用方式，我们侧重介绍如何在&lt;code>Windows&lt;/code>系统下配置，&lt;code>Windows 10&lt;/code>/&lt;code>Windows 11&lt;/code>均可。
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rsproxy_main_page.png">&lt;/p>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rsproxy_main_page.png">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>按下键盘上的&lt;code>Win&lt;/code>键，输入&lt;code>edit environment variables for your account&lt;/code>/&lt;code>环境变量&lt;/code>，打开环境变量编辑页面。
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/env_variable_overview.png">
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/env_variable_overview.png">
 图上是已经配置好的效果，具体操作方法如下&lt;/p>
 &lt;ul>
 &lt;li>点击&lt;code>Edit&lt;/code>/&lt;code>编辑&lt;/code>，将&lt;code>RUSTUP_DIST_SERVER&lt;/code>和&lt;code>https://rsproxy.cn&lt;/code>，依次填入相应位置
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rsproxy_server.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rsproxy_server.png">&lt;/li>
 &lt;li>如法炮制，再将&lt;code>RUSTUP_UPDATE_ROOT&lt;/code>和&lt;code>https://rsproxy.cn/rustup&lt;/code>填入相应位置
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rsproxy_updateroot.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rsproxy_updateroot.png">&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>
@@ -77,49 +77,49 @@
 &lt;ul>
 &lt;li>&lt;a href="https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe">&lt;code>Rust Installer&lt;/code>&lt;/a>，点击直接下载&lt;/li>
 &lt;li>下载完成后，双击打开即可
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_00.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_00.png">&lt;/li>
 &lt;li>输入&lt;code>1&lt;/code>，按下回车（&lt;code>Enter&lt;/code>），之后的弹窗继续点击&lt;code>Yes&lt;/code>&lt;/li>
 &lt;li>继续点击&lt;code>Continue&lt;/code>
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_01.png">
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_02.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_01.png">
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_02.png">&lt;/li>
 &lt;li>点击&lt;code>Install&lt;/code>
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_03.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_03.png">&lt;/li>
 &lt;li>等待进度条跑完
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_04.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_04.png">&lt;/li>
 &lt;li>完成
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_05.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_05.png">&lt;/li>
 &lt;li>完成以上步骤之后，&lt;code>Rust Installer&lt;/code>会继续引导我们完成接下来的步骤
 &lt;ul>
 &lt;li>可以看到，已经识别到了&lt;code>host&lt;/code>, &lt;code>toolchain&lt;/code>等信息
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_06.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_06.png">&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>现在输入&lt;code>2&lt;/code>，并且按下回车（&lt;code>Enter&lt;/code>）确认
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_07.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_07.png">&lt;/li>
 &lt;li>继续回车（&lt;code>Enter&lt;/code>）
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_08.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_08.png">&lt;/li>
 &lt;li>输入&lt;code>nightly&lt;/code>，继续回车（&lt;code>Enter&lt;/code>）
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_09.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_09.png">&lt;/li>
 &lt;li>接下来一直点回车（&lt;code>Enter&lt;/code>）即可，以下是安装过程，耐心等待即可
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_10.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_10.png">&lt;/li>
 &lt;li>命令行窗口提示：&lt;code>Rust is installed now. Great!&lt;/code>，则说明安装成功
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_11.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_11.png">&lt;/li>
 &lt;li>按下回车（&lt;code>Enter&lt;/code>）即可&lt;/li>
 &lt;li>打开&lt;code>Visual Studio Installer&lt;/code>，安装一些必备组件，之后编译项目或者工具的时候需要用到，点击&lt;code>Modify&lt;/code>
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_12.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_12.png">&lt;/li>
 &lt;li>勾选&lt;code>Desktop development with C++&lt;/code>，点击&lt;code>Modify&lt;/code>，之后的弹窗点击&lt;code>Yes&lt;/code>即可
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_13.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_13.png">&lt;/li>
 &lt;li>等待进度条跑满（下载速度能到&lt;code>100MB/s&lt;/code>，使用&lt;code>SSD&lt;/code>的情况下，估计两分钟就完成了）
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_14.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_14.png">&lt;/li>
 &lt;li>安装完成会再次回到这个界面，关闭即可
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_15.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_15.png">&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>
 &lt;p>若只是安装&lt;code>Rust&lt;/code>，并且只是用标准库（无法做嵌入式开发），则完成以上步骤即可，但&lt;code>Rust&lt;/code>嵌入式会频繁使用到&lt;a href="https://crates.io/">&lt;code>crates.io&lt;/code>&lt;/a>的一些&lt;code>crate&lt;/code>（理解成其他语言的库/模块），所以还需要配置拉取&lt;code>rsproxy&lt;/code>提供的镜像（一分钟更新一次，可以近似理解为不会过时），具体操作步骤如下&lt;/p>
 &lt;ul>
 &lt;li>按下&lt;code>Win&lt;/code>+&lt;code>E&lt;/code>，打开资源管理器，进入&lt;code>C&lt;/code>盘下的&lt;code>user&lt;/code>目录，进入当前用户目录（我的是&lt;code>Admin&lt;/code>，顺便一提，用户名最好是英文或者数字，不要用中文或者夹杂一些其他符号），继续进入&lt;code>.cargo&lt;/code>目录，如果顺利，你当前的&lt;code>PWD&lt;/code>应该类似是这样的：&lt;code>C:\Users\Admin\.cargo&lt;/code>，紧接着复制&lt;code>rsproxy&lt;/code>主页代码块里的配置文件
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rsproxy_crates_io.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rsproxy_crates_io.png">&lt;/li>
 &lt;li>在当前目录下（&lt;code>C:\Users\Admin\.cargo&lt;/code>）新建一个&lt;code>config.toml&lt;/code>文件，将以下&lt;code>toml&lt;/code>配置，粘贴进去（可以新建一个&lt;code>config.txt&lt;/code>文件，将内容粘贴进去后，再将后缀更改为&lt;code>toml&lt;/code>即可）&lt;/li>
 &lt;/ul>
 &lt;/li>
@@ -237,6 +237,6 @@
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>安装以上工具时，会先拉取依赖的&lt;code>crate&lt;/code>，再进行编译，&lt;code>CPU&lt;/code>会瞬间跑满，风扇起飞，给出一个执行&lt;code>cargo install cargo-binstall&lt;/code>的参考
-&lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/tools_compling_process.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/tools_compling_process.png">&lt;/li>
 &lt;/ul>
 &lt;p>至此，若只开发&lt;code>STM32&lt;/code>常用芯片（&lt;code>STM32F1xx&lt;/code>, &lt;code>STM32F4xx&lt;/code>, &lt;code>STM32H7xx&lt;/code>, &lt;code>STM32G4xx&lt;/code>），则以上环境配置足矣，若还要继续开发其他架构的芯片，例如&lt;code>Cortex M33&lt;/code>架构，则需要安装其他的交叉编译工具（若是想要提前尝鲜，也可求助&lt;code>LLM&lt;/code>）。至于&lt;code>RP 2040/235X Pico(2)&lt;/code>和&lt;code>ESP32&lt;/code>的开发环境，会分别各自单开一篇博客来讲，若是复用到本篇博客，我也会详细注明。&lt;/p></description></item></channel></rss>
