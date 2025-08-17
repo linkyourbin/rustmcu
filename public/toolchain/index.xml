@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Toolchains on RUST MCU BLOG</title><link>http://localhost:1313/rustmcu/toolchain/</link><description>Recent content in Toolchains on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Sun, 17 Aug 2025 14:14:23 +0800</lastBuildDate><atom:link href="http://localhost:1313/rustmcu/toolchain/index.xml" rel="self" type="application/rss+xml"/><item><title>一分钟，搭建`Rust RP 2040/235X Pico(2)`开发环境</title><link>http://localhost:1313/rustmcu/toolchain/rpx-picox-dev-setup/</link><pubDate>Sun, 17 Aug 2025 14:14:23 +0800</pubDate><guid>http://localhost:1313/rustmcu/toolchain/rpx-picox-dev-setup/</guid><description>&lt;p>由于&lt;/p></description></item><item><title>一分钟安装 ESP32 Rust 开发环境</title><link>http://localhost:1313/rustmcu/toolchain/esp32-dev-setup/</link><pubDate>Sun, 17 Aug 2025 13:49:27 +0800</pubDate><guid>http://localhost:1313/rustmcu/toolchain/esp32-dev-setup/</guid><description>&lt;h1 id="注意">注意&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Toolchains on RUST MCU BLOG</title><link>http://localhost:1313/toolchain/</link><description>Recent content in Toolchains on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Sun, 17 Aug 2025 14:14:23 +0800</lastBuildDate><atom:link href="http://localhost:1313/toolchain/index.xml" rel="self" type="application/rss+xml"/><item><title>一分钟，搭建Rust RP 2040/2350 Pico(2)开发环境</title><link>http://localhost:1313/toolchain/rpx-picox-dev-setup/</link><pubDate>Sun, 17 Aug 2025 14:14:23 +0800</pubDate><guid>http://localhost:1313/toolchain/rpx-picox-dev-setup/</guid><description>&lt;p>由于已经在&lt;code>五分钟，带你从安装STM32 Rust嵌入式开发环境，到脱离苦海&lt;/code>这篇博客里详细展示了如何搭建&lt;code>基座环境&lt;/code>，故本篇博客，不会从头开始，只需要安装对应的&lt;code>target&lt;/code>即可。&lt;/p>
+&lt;p>查阅官网资料得知：&lt;/p>
+&lt;p>&lt;code>RP 2040 Pico&lt;/code>部分重要信息如下&lt;/p>
+&lt;ul>
+&lt;li>Dual ARM Cortex-M0+ @ 133MHz&lt;/li>
+&lt;/ul>
+&lt;p>打开终端，安装对应的&lt;code>target&lt;/code>（理解为交叉编译工具）&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rustup target add thumbv6m-none-eabi
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>RP 2350 Pico2&lt;/code>部分重要信息如下&lt;/p>
+&lt;ul>
+&lt;li>Dual Cortex-M33 or Hazard3 processors at 150 MHz
+打开终端，安装对应的&lt;code>target&lt;/code>（理解为交叉编译工具）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rustup target add thumbv8m.main-none-eabihf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>之后更新的教程，会侧重使用&lt;code>RP 2350 Pico2&lt;/code>进行演示。&lt;/p></description></item><item><title>一分钟安装 ESP32 Rust 开发环境</title><link>http://localhost:1313/toolchain/esp32-dev-setup/</link><pubDate>Sun, 17 Aug 2025 13:49:27 +0800</pubDate><guid>http://localhost:1313/toolchain/esp32-dev-setup/</guid><description>&lt;h1 id="注意">注意&lt;/h1>
 &lt;p>由于一部分工具链可以复用，理解为将之前的开发环境作为基座，所以不再要求从头开始单独配置&lt;code>ESP32&lt;/code>的开发环境，请先阅读完&lt;code>五分钟，带你从安装STM32 Rust嵌入式开发环境，到脱离苦海&lt;/code>这篇博客，再继续接下来的操作。&lt;/p>
 &lt;hr>
 &lt;h1 id="按照顺序执行以下命令">按照顺序，执行以下命令&lt;/h1>
@@ -25,7 +53,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cargo install espflash
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="完成以上步骤之后esp32的开发环境就搭建完毕了恭喜你的技术栈又丰富了许多">完成以上步骤之后，&lt;code>ESP32&lt;/code>的开发环境就搭建完毕了。恭喜，你的技术栈又丰富了许多。&lt;/h2></description></item><item><title>五分钟，带你从安装STM32 Rust嵌入式开发环境，到脱离苦海</title><link>http://localhost:1313/rustmcu/toolchain/stm32-dev-env-setup/</link><pubDate>Fri, 15 Aug 2025 20:53:18 +0800</pubDate><guid>http://localhost:1313/rustmcu/toolchain/stm32-dev-env-setup/</guid><description>&lt;p>可以本篇博客当作一个&lt;code>Rust&lt;/code>嵌入式开发的基础环境，不同的芯片，只需要在此基础上安装对应的&lt;code>toolchain&lt;/code>和&lt;code>target&lt;/code>即可，由于是&lt;code>Windows&lt;/code>环境，为了最完美的兼容和适配，我们选择&lt;code>MSVC&lt;/code>而不是&lt;code>GNU&lt;/code>，这是长期实践下来比较完美的方案，若你是新手，无脑照抄即可。&lt;/p>
+&lt;/div>&lt;h2 id="完成以上步骤之后esp32的开发环境就搭建完毕了恭喜你的技术栈又丰富了许多">完成以上步骤之后，&lt;code>ESP32&lt;/code>的开发环境就搭建完毕了。恭喜，你的技术栈又丰富了许多。&lt;/h2></description></item><item><title>五分钟，带你从安装STM32 Rust嵌入式开发环境，到脱离苦海</title><link>http://localhost:1313/toolchain/stm32-dev-env-setup/</link><pubDate>Fri, 15 Aug 2025 20:53:18 +0800</pubDate><guid>http://localhost:1313/toolchain/stm32-dev-env-setup/</guid><description>&lt;p>本篇博客搭建了一个&lt;code>Rust&lt;/code>嵌入式开发的基础环境，不同的芯片，只需要在此基础上安装对应的&lt;code>toolchain&lt;/code>和&lt;code>target&lt;/code>即可，由于是&lt;code>Windows&lt;/code>环境，为了最完美的兼容和适配，我们选择&lt;code>MSVC&lt;/code>而不是&lt;code>GNU&lt;/code>，这是长期实践下来比较完美的方案，若你是新手，无脑照抄即可。&lt;/p>
 &lt;h1 id="安装rust">安装&lt;code>Rust&lt;/code>&lt;/h1>
 &lt;p>若使用国内的网络直连，安装&lt;code>Rust&lt;/code>时可能会耗费大量时间在下载环节，所以先配置一下代理（合理合法，免费使用）。&lt;/p>
 &lt;ul>
@@ -79,7 +107,7 @@
 &lt;li>按下回车（&lt;code>Enter&lt;/code>）即可&lt;/li>
 &lt;li>打开&lt;code>Visual Studio Installer&lt;/code>，安装一些必备组件，之后编译项目或者工具的时候需要用到，点击&lt;code>Modify&lt;/code>
 &lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_12.png">&lt;/li>
-&lt;li>勾选&lt;code>Desktop development with C++&lt;/code>，点击&lt;code>Modify&lt;/code>即可，之后的弹窗点击&lt;code>Yes&lt;/code>即可
+&lt;li>勾选&lt;code>Desktop development with C++&lt;/code>，点击&lt;code>Modify&lt;/code>，之后的弹窗点击&lt;code>Yes&lt;/code>即可
 &lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_13.png">&lt;/li>
 &lt;li>等待进度条跑满（下载速度能到&lt;code>100MB/s&lt;/code>，使用&lt;code>SSD&lt;/code>的情况下，估计两分钟就完成了）
 &lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rust_install_14.png">&lt;/li>
@@ -92,7 +120,7 @@
 &lt;ul>
 &lt;li>按下&lt;code>Win&lt;/code>+&lt;code>E&lt;/code>，打开资源管理器，进入&lt;code>C&lt;/code>盘下的&lt;code>user&lt;/code>目录，进入当前用户目录（我的是&lt;code>Admin&lt;/code>，顺便一提，用户名最好是英文或者数字，不要用中文或者夹杂一些其他符号），继续进入&lt;code>.cargo&lt;/code>目录，如果顺利，你当前的&lt;code>PWD&lt;/code>应该类似是这样的：&lt;code>C:\Users\Admin\.cargo&lt;/code>，紧接着复制&lt;code>rsproxy&lt;/code>主页代码块里的配置文件
 &lt;img loading="lazy" src="http://localhost:1313/rustmcu/toolchain-images/rsproxy_crates_io.png">&lt;/li>
-&lt;li>在当前目录下（&lt;code>C:\Users\Admin\.cargo&lt;/code>）新建一个&lt;code>config.toml&lt;/code>文件，将以下&lt;code>toml&lt;/code>配置，粘贴进去&lt;/li>
+&lt;li>在当前目录下（&lt;code>C:\Users\Admin\.cargo&lt;/code>）新建一个&lt;code>config.toml&lt;/code>文件，将以下&lt;code>toml&lt;/code>配置，粘贴进去（可以新建一个&lt;code>config.txt&lt;/code>文件，将内容粘贴进去后，再将后缀更改为&lt;code>toml&lt;/code>即可）&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -128,7 +156,11 @@
 &lt;ul>
 &lt;li>软件
 &lt;ul>
-&lt;li>&lt;code>vscode&lt;/code>作为编辑器足矣&lt;/li>
+&lt;li>选用&lt;code>vscode&lt;/code>作为编辑器足矣
+&lt;ul>
+&lt;li>至于&lt;code>nvim&lt;/code>和&lt;code>zed&lt;/code>或者是其余的&lt;code>editor&lt;/code>/&lt;code>IDE&lt;/code>，并不适合新手入门，而且&lt;code>vscode&lt;/code>也不算过时&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>插件
@@ -136,14 +168,18 @@
 &lt;li>&lt;code>rust-lang.rust-analyzer&lt;/code>：提供&lt;code>Rust LSP&lt;/code>，当前最优秀的&lt;code>Rust&lt;/code>语言服务器，&lt;code>vscode + RA&lt;/code>的好用程度远超&lt;code>JetBrains&lt;/code>家的&lt;code>RustRover&lt;/code>&lt;/li>
 &lt;li>&lt;code>fill-labs.dependi&lt;/code>：帮助管理&lt;code>crate&lt;/code>，更直观的看到当前工程下&lt;code>crate&lt;/code>的版本信息&lt;/li>
 &lt;li>&lt;code>tamasfe.even-better-toml&lt;/code>：提供&lt;code>toml&lt;/code>语法高亮和补全&lt;/li>
-&lt;li>&lt;code>probe-rs.probe-rs-debugger&lt;/code>：调试服务器&lt;/li>
+&lt;li>&lt;code>probe-rs.probe-rs-debugger&lt;/code>：调试服务器
+&lt;ul>
+&lt;li>以上所有插件，直接复制名称，粘贴在&lt;code>vscode&lt;/code>的插件市场的搜索栏里，回车搜索，点击安装即可&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>安装交叉编译工具链和下常用工具
 &lt;ul>
-&lt;li>打开命令行，输入以下命令&lt;/li>
+&lt;li>打开命令行，输入以下命令，并按下回车（&lt;code>Enter&lt;/code>），按照顺序执行即可&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
