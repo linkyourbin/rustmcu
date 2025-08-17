@@ -154,6 +154,16 @@ cargo binstall probe-rs-tools
 
 # 视频版本，可以点击跳转到`Bilibili`观看
 
-{{< bilibili aid="114805734118868" bvid="BV1TV3qzbE87" cid="30883383076" p="1" >}}
+<div style="display: flex; justify-content: center; margin: 2rem 0;">
+  <iframe 
+    src="//player.bilibili.com/player.html?isOutside=true&aid=114805734118868&bvid=BV1TV3qzbE87&cid=30883383076&p=1" 
+    scrolling="no" 
+    border="0" 
+    frameborder="no" 
+    framespacing="0" 
+    allowfullscreen="true"
+    style="width: 800px; height: 450px;">
+  </iframe>
+</div>
 
 ---
