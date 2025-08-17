@@ -139,7 +139,7 @@ markup:
     tabWidth: 4
   goldmark:
     renderer:
-      unsafe: true
+      unsafe: false
   tableOfContents:
     endLevel: 4
     startLevel: 1
