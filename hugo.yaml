@@ -32,7 +32,7 @@ params:
     - rust-embedded
     - rust on mcu
     - embassy
-  showReadingTime: true
+  showReadingTime: false
   defaultTheme: auto
   displayFullLangName: true
   hideFooter: false
@@ -139,7 +139,7 @@ markup:
     tabWidth: 4
   goldmark:
     renderer:
-      unsafe: false
+      unsafe: true
   tableOfContents:
     endLevel: 4
     startLevel: 1
