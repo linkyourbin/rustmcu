@@ -1,8 +1,12 @@
 +++
 date = '2025-08-14T18:37:26+08:00'
 draft = true
-title = 'Miscellanea'
+title = '杂记/小记/章节介绍'
 categories = ["miscellanea"]  # 添加这一行，指定所属分类
 # 可选：添加标签（tags）便于内容聚合
 tags = ["rust", "embedded", "blinky"]
 +++
+
+这一部分主要整合一些不方便进行归类的内容，其中可能会涵盖`PCB`设计，`大模型微调`（你没听错，你甚至能在一个`RUST MCU`的博客里看到微调大模型的技巧），`上位机`开发，`Rust嵌入式小项目`，`C`嵌入式，`Rust`编写实用工具等内容。
+
+---

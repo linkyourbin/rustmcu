@@ -6,6 +6,7 @@ theme: PaperMod
 build:
   useResourceCacheWhen: always
   writeStats: true
+  buildDrafts: true
 
 minify:
   minifyOutput: true
@@ -31,7 +32,6 @@ params:
     - rust-embedded
     - rust on mcu
     - embassy
-  ShowBreadCrumbs: true
   showReadingTime: true
   defaultTheme: auto
   displayFullLangName: true
@@ -47,22 +47,29 @@ params:
   showPostNavLinks: true
   useHugoToc: true
   disableAnchoredHeadings: false
+
   mainSections:
     - mainpage
+    - stm32   
+    - esp32   
+    - rp      
+    - miscellanea
+    - toolchain
+    - search
   colorScheme: auto
   favicon: favicon.ico
   enableTwemoji: true
   enableEmojiPicker: true
   editPost:
-    url: https://github.com/linkyourbin/linkyourbin.github.io/edit/main/content/
+    url: https://github.com/linkyourbin/
     text: error fix
 
   
   profileMode:
     enabled: true
     title: "linkyourbin"  
-    subtitle: "嵌入式爱好者，业余玩家🦀🦀"  
-    imageUrl: "images/avatar.svg"  
+    subtitle: "Be the change you want to see in the world."  
+    imageUrl: "profile/avatar.svg"  
     imageWidth: 360
     imageHeight: 360
 
@@ -79,23 +86,38 @@ menu:
       url: /categories/home
       weight: 1
       pre: "<i class='fa fa-home'></i>"
+
     - name: Miscellanea
       url: /categories/miscellanea/
       weight: 2
       pre: "<i class='fa fa-file-text'></i>"
+
     - name: STM32
       url: /categories/stm32/
       weight: 3
       pre: "<i class='fa fa-microchip'></i>"
+
     - name: ESP32
       url: /categories/esp32/
       weight: 4
       pre: "<i class='fa fa-wifi'></i>"
-    - name: RP Pico
+
+    - name: RP
       url: /categories/rp/
       weight: 5
       pre: "<i class='fa fa-raspberry-pi'></i>"
 
+    - name: Toolchain
+      url: /categories/toolchain/
+      weight: 6
+      pre: "<i class='fa fa-file-text'></i>"
+
+    - name: Search
+      url: /categories/search/
+      weight: 7
+      pre: "<i class='fa fa-file-text'></i>"
+
+      
 taxonomies:
   category: categories
   tag: tags
@@ -177,3 +199,4 @@ security:
       - POST
     urls:
       - .*
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Easy on RUST MCU BLOG</title><link>http://localhost:1313/rustmcu/tags/easy/</link><description>Recent content in Easy on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Thu, 14 Aug 2025 19:00:25 +0800</lastBuildDate><atom:link href="http://localhost:1313/rustmcu/tags/easy/index.xml" rel="self" type="application/rss+xml"/><item><title>Blinky</title><link>http://localhost:1313/rustmcu/rp/blinky/</link><pubDate>Thu, 14 Aug 2025 19:00:25 +0800</pubDate><guid>http://localhost:1313/rustmcu/rp/blinky/</guid><description/></item><item><title>00：点亮一个LED</title><link>http://localhost:1313/rustmcu/esp32/blinky/</link><pubDate>Thu, 14 Aug 2025 19:00:19 +0800</pubDate><guid>http://localhost:1313/rustmcu/esp32/blinky/</guid><description/></item><item><title>00：STM32 LED Blinky</title><link>http://localhost:1313/rustmcu/stm32/blinky/</link><pubDate>Thu, 14 Aug 2025 18:39:34 +0800</pubDate><guid>http://localhost:1313/rustmcu/stm32/blinky/</guid><description>&lt;hr>
+&lt;h1 id="硬件准备">硬件准备&lt;/h1>
+&lt;ul>
+&lt;li>&lt;code>STM32&lt;/code>开发板*1&lt;/li>
+&lt;li>烧录器*1
+&lt;ul>
+&lt;li>推荐使用&lt;code>ST-Link&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>LED&lt;/code>*1
+&lt;ul>
+&lt;li>若有板载&lt;code>LED&lt;/code>，则无需准备&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>杜邦线若干&lt;/li>
+&lt;/ul></description></item></channel></rss>
