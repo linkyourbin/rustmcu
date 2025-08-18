@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Rust on RUST MCU BLOG</title><link>https://rustmcu.com/tags/rust/</link><description>Recent content in Rust on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Thu, 14 Aug 2025 19:00:25 +0800</lastBuildDate><atom:link href="https://rustmcu.com/tags/rust/index.xml" rel="self" type="application/rss+xml"/><item><title>Blinky</title><link>https://rustmcu.com/rp/blinky/</link><pubDate>Thu, 14 Aug 2025 19:00:25 +0800</pubDate><guid>https://rustmcu.com/rp/blinky/</guid><description/></item><item><title>博客介绍</title><link>https://rustmcu.com/home/intro/</link><pubDate>Thu, 14 Aug 2025 18:40:05 +0800</pubDate><guid>https://rustmcu.com/home/intro/</guid><description>&lt;hr>
+&lt;h1 id="overview">Overview🦀&lt;/h1>
+&lt;blockquote>
+&lt;p>What offered？&lt;/p>&lt;/blockquote>
+&lt;ul>
+&lt;li>基础的&lt;code>Rust&lt;/code>嵌入式知识。
+&lt;ul>
+&lt;li>防止劝退，不会从寄存器开发讲起，大多数时候，仅会演示如何编写模块驱动，或是协调多个模块工作。&lt;/li>
+&lt;li>关键词
+&lt;ul>
+&lt;li>&lt;code>vscode&lt;/code> ：“最好用”的代码编辑器&lt;/li>
+&lt;li>&lt;code>bash&lt;/code> ：编写特定的自动化脚本&lt;/li>
+&lt;li>&lt;code>python&lt;/code> ：图像处理，简单&lt;code>GUI&lt;/code>快速实现，自动化脚本编写&lt;/li>
+&lt;li>&lt;code>probe-rs&lt;/code> ：调试嵌入式程序，或许你没听过，但这不是重点&lt;/li>
+&lt;li>&lt;code>STM32CubeMX&lt;/code> ：查看&lt;code>STM32&lt;/code>系列芯片的外设，利好&lt;code>PCB&lt;/code>设计&lt;/li>
+&lt;li>&lt;code>Adobe illustrator&lt;/code>：快速绘制异形板框&lt;/li>
+&lt;li>&lt;code>Anaconda&lt;/code> ：管理&lt;code>Python&lt;/code>开发环境，一个开发场景使用一个特定的&lt;code>Python&lt;/code>环境&lt;/li>
+&lt;li>&lt;code>embassy&lt;/code> ：&lt;code>Rust&lt;/code>嵌入式的异步框架，目前较为成熟的开发框架&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>2/4&lt;/code>层PCB设计知识，快速验证Demo
+&lt;ul>
+&lt;li>&lt;code>KiCAD&lt;/code> ：开源PCB设计软件&lt;/li>
+&lt;li>&lt;code>Altium Designer(trial version)&lt;/code> ： 芯片原厂都在使用的PCB设计软件&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="me--rustmcu">me &amp;amp; rustmcu&lt;/h1>
+&lt;ul>
+&lt;li>MCU
+&lt;ul>
+&lt;li>STM32
+&lt;ul>
+&lt;li>Fxx&lt;/li>
+&lt;li>Hxx&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>ESP32
+&lt;ul>
+&lt;li>ESP32C3&lt;/li>
+&lt;li>ESP32C6&lt;/li>
+&lt;li>ESP32S3&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>RP Pico
+&lt;ul>
+&lt;li>RP2040 Pico&lt;/li>
+&lt;li>Rp235x Pico2&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>现在还是学生，尚未工作&lt;/li>
+&lt;li>建站仅是记录，顺便分享&lt;/li>
+&lt;li>教程未必严谨，按需学习&lt;/li>
+&lt;/ul></description></item><item><title>杂记/小记/章节介绍</title><link>https://rustmcu.com/miscellanea/miscellanea/</link><pubDate>Thu, 14 Aug 2025 18:37:26 +0800</pubDate><guid>https://rustmcu.com/miscellanea/miscellanea/</guid><description>&lt;p>这一部分主要整合一些不方便进行归类的内容，其中可能会涵盖&lt;code>PCB&lt;/code>设计，&lt;code>大模型微调&lt;/code>（你没听错，你甚至能在一个&lt;code>RUST MCU&lt;/code>的博客里看到微调大模型的技巧），&lt;code>上位机&lt;/code>开发，&lt;code>Rust嵌入式小项目&lt;/code>，&lt;code>C&lt;/code>嵌入式，&lt;code>Rust&lt;/code>编写实用工具等内容。&lt;/p>
+&lt;hr></description></item></channel></rss>
