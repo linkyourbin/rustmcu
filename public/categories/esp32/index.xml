@@ -62,7 +62,7 @@
 &lt;p>如上图，可以在终端&lt;code>Terminal&lt;/code>里直接看到&lt;code>DHT11&lt;/code>测量到的温湿度信息，无需额外的串口。终端里也支持中文信息输出，感兴趣可以自己上手实测。&lt;/p>&lt;/blockquote>
 &lt;h1 id="使用esp-generate生成模板工程">使用&lt;code>esp-generate&lt;/code>生成模板工程&lt;/h1>
 &lt;blockquote>
-&lt;p>由于过程具有重复性，故不再重复演示，请点击跳转&lt;a href="http://localhost:1313/esp32/dht11/esp-generate-template/" style="color: #e16054ff; font-weight: bold; font-style: italic;">使用esp-generate生成一个ESP32初始工程&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>由于过程具有重复性，故不再重复演示，请点击跳转&lt;a href="http://localhost:1313/esp32/esp-generate-template/" style="color: #e16054ff; font-weight: bold; font-style: italic;">使用esp-generate生成一个ESP32初始工程&lt;/a>&lt;/p>&lt;/blockquote>
 &lt;h1 id="打开工程">打开工程&lt;/h1>
 &lt;ul>
 &lt;li>导入需要用到的&lt;code>crate&lt;/code>，在工程根目录下打开终端，输入以下命令，并按下回车（&lt;code>Enter&lt;/code>）&lt;/li>

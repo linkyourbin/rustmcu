@@ -18,7 +18,7 @@ tags : ["esp32C3", "DHT11"]
 
 # 使用`esp-generate`生成模板工程
 
-> 由于过程具有重复性，故不再重复演示，请点击跳转<a href="/esp32/dht11/esp-generate-template/" style="color: #e16054ff; font-weight: bold; font-style: italic;">使用esp-generate生成一个ESP32初始工程</a>
+> 由于过程具有重复性，故不再重复演示，请点击跳转<a href="/esp32/esp-generate-template/" style="color: #e16054ff; font-weight: bold; font-style: italic;">使用esp-generate生成一个ESP32初始工程</a>
 
 # 打开工程
 - 导入需要用到的`crate`，在工程根目录下打开终端，输入以下命令，并按下回车（`Enter`）
