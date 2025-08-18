@@ -26,7 +26,7 @@
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rustup target add thumbv8m.main-none-eabihf
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>之后更新的教程，会侧重使用&lt;code>RP 2350 Pico2&lt;/code>进行演示。&lt;/p></description></item><item><title>一分钟安装 ESP32 Rust 开发环境</title><link>http://localhost:1313/toolchain/esp32-dev-setup/</link><pubDate>Sun, 17 Aug 2025 13:49:27 +0800</pubDate><guid>http://localhost:1313/toolchain/esp32-dev-setup/</guid><description>&lt;h1 id="注意">注意&lt;/h1>
+&lt;/div>&lt;p>之后更新的教程，会侧重使用&lt;code>RP 2350 Pico2&lt;/code>进行演示。&lt;/p></description></item><item><title>一分钟，搭建ESP32 Rust开发环境</title><link>http://localhost:1313/toolchain/esp32-dev-setup/</link><pubDate>Sun, 17 Aug 2025 13:49:27 +0800</pubDate><guid>http://localhost:1313/toolchain/esp32-dev-setup/</guid><description>&lt;h1 id="注意">注意&lt;/h1>
 &lt;p>由于一部分工具链可以复用，理解为将之前的开发环境作为基座，所以不再要求从头开始单独配置&lt;code>ESP32&lt;/code>的开发环境，请先阅读完&lt;code>五分钟，带你从安装STM32 Rust嵌入式开发环境，到脱离苦海&lt;/code>这篇博客，再继续接下来的操作。&lt;/p>
 &lt;hr>
 &lt;h1 id="按照顺序执行以下命令">按照顺序，执行以下命令&lt;/h1>
@@ -53,7 +53,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cargo install espflash
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="完成以上步骤之后esp32的开发环境就搭建完毕了恭喜你的技术栈又丰富了许多">完成以上步骤之后，&lt;code>ESP32&lt;/code>的开发环境就搭建完毕了。恭喜，你的技术栈又丰富了许多。&lt;/h2></description></item><item><title>五分钟，带你从安装STM32 Rust嵌入式开发环境，到脱离苦海</title><link>http://localhost:1313/toolchain/stm32-dev-env-setup/</link><pubDate>Fri, 15 Aug 2025 20:53:18 +0800</pubDate><guid>http://localhost:1313/toolchain/stm32-dev-env-setup/</guid><description>&lt;p>本篇博客搭建了一个&lt;code>Rust&lt;/code>嵌入式开发的基础环境，不同的芯片，只需要在此基础上安装对应的&lt;code>toolchain&lt;/code>和&lt;code>target&lt;/code>即可，由于是&lt;code>Windows&lt;/code>环境，为了最完美的兼容和适配，我们选择&lt;code>MSVC&lt;/code>而不是&lt;code>GNU&lt;/code>，这是长期实践下来比较完美的方案，若你是新手，无脑照抄即可。&lt;/p>
+&lt;/div>&lt;h2 id="完成以上步骤之后esp32的开发环境就搭建完毕了恭喜你的技术栈又丰富了许多">完成以上步骤之后，&lt;code>ESP32&lt;/code>的开发环境就搭建完毕了。恭喜，你的技术栈又丰富了许多。&lt;/h2></description></item><item><title>五分钟，搭建Rust嵌入式开发环境</title><link>http://localhost:1313/toolchain/stm32-dev-env-setup/</link><pubDate>Fri, 15 Aug 2025 20:53:18 +0800</pubDate><guid>http://localhost:1313/toolchain/stm32-dev-env-setup/</guid><description>&lt;p>本篇博客搭建了一个&lt;code>Rust&lt;/code>嵌入式开发的基础环境，不同的芯片，只需要在此基础上安装对应的&lt;code>toolchain&lt;/code>和&lt;code>target&lt;/code>即可，由于是&lt;code>Windows&lt;/code>环境，为了最完美的兼容和适配，我们选择&lt;code>MSVC&lt;/code>而不是&lt;code>GNU&lt;/code>，这是长期实践下来比较完美的方案，若你是新手，无脑照抄即可。&lt;/p>
 &lt;h1 id="安装rust">安装&lt;code>Rust&lt;/code>&lt;/h1>
 &lt;p>若使用国内的网络直连，安装&lt;code>Rust&lt;/code>时可能会耗费大量时间在下载环节，所以先配置一下代理（合理合法，免费使用）。&lt;/p>
 &lt;ul>
@@ -239,4 +239,4 @@
 &lt;li>安装以上工具时，会先拉取依赖的&lt;code>crate&lt;/code>，再进行编译，&lt;code>CPU&lt;/code>会瞬间跑满，风扇起飞，给出一个执行&lt;code>cargo install cargo-binstall&lt;/code>的参考
 &lt;img loading="lazy" src="http://localhost:1313/toolchain-images/tools_compling_process.png">&lt;/li>
 &lt;/ul>
-&lt;p>至此，若只开发&lt;code>STM32&lt;/code>常用芯片（&lt;code>STM32F1xx&lt;/code>, &lt;code>STM32F4xx&lt;/code>, &lt;code>STM32H7xx&lt;/code>, &lt;code>STM32G4xx&lt;/code>），则以上环境配置足矣，若还要继续开发其他架构的芯片，例如&lt;code>Cortex M33&lt;/code>架构，则需要安装其他的交叉编译工具（若是想要提前尝鲜，也可求助&lt;code>LLM&lt;/code>）。至于&lt;code>RP 2040/235X Pico(2)&lt;/code>和&lt;code>ESP32&lt;/code>的开发环境，会分别各自单开一篇博客来讲，若是复用到本篇博客，我也会详细注明。&lt;/p></description></item></channel></rss>
+&lt;p>综上，搭建了一个基础的&lt;code>Rust&lt;/code>嵌入式开发环境，之后的教程主要使用&lt;code>STM32&lt;/code>, &lt;code>ESP32&lt;/code>, &lt;code>RP2040 Pico, RP2350 Pico2&lt;/code>等&lt;code>MCU&lt;/code>进行演示。&lt;/p></description></item></channel></rss>

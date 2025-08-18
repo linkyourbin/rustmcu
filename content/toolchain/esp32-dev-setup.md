@@ -1,7 +1,7 @@
 ---
 date: '2025-08-17T13:49:27+08:00'
 draft: true
-title: '一分钟安装 ESP32 Rust 开发环境'
+title: '一分钟，搭建ESP32 Rust开发环境'
 categories : ["toolchain"]  
 tags : ["esp32"]
 ---

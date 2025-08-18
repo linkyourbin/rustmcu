@@ -1,7 +1,7 @@
 ---
 date: '2025-08-15T20:53:18+08:00'
 draft: true
-title: '五分钟，带你从安装STM32 Rust嵌入式开发环境，到脱离苦海'
+title: '五分钟，搭建Rust嵌入式开发环境'
 categories : ["toolchain"]  
 tags : ["stm32"]
 ---
@@ -118,6 +118,8 @@ cargo binstall probe-rs-tools
   - 安装以上工具时，会先拉取依赖的`crate`，再进行编译，`CPU`会瞬间跑满，风扇起飞，给出一个执行`cargo install cargo-binstall`的参考
 ![](/toolchain-images/tools_compling_process.png)
 
+综上，搭建了一个基础的`Rust`嵌入式开发环境，之后的教程主要使用`STM32`, `ESP32`, `RP2040 Pico, RP2350 Pico2`等`MCU`进行演示。
+
 至此，若只开发`STM32`常用芯片（`STM32F1xx`, `STM32F4xx`, `STM32H7xx`, `STM32G4xx`），则以上环境配置足矣，若还要继续开发其他架构的芯片，例如`Cortex M33`架构，则需要安装其他的交叉编译工具（若是想要提前尝鲜，也可求助`LLM`）。至于`RP 2040/235X Pico(2)`和`ESP32`的开发环境，会分别各自单开一篇博客来讲，若是复用到本篇博客，我也会详细注明。
 
 `Rust`本身就是一门~~反复入门，不断卸载重装的~~语言，若是学习过程让你感觉到吃力，不舒服，你想继续回归`C/C++`嵌入式，请按照以下步骤完成卸载。
@@ -127,9 +129,11 @@ cargo binstall probe-rs-tools
 # 卸载`Rust`嵌入式开发环境
 - 卸载`Rust`及工具链
   - 打开`CMD`/`Powershell`，输入以下命令，并且回车（`Enter`）确认
+
   ```bash
   rustup self uninstall
   ```
+  
   ![](/toolchain-images/rust_uninstall_cmd.png)
   - 继续输入`y`，按下回车（`Enter`）
   ![](/toolchain-images/rust_uninstall_enter.png)
@@ -153,6 +157,8 @@ cargo binstall probe-rs-tools
 完成以上步骤之后，`Rust`嵌入式开发便与你再无交集，恭喜脱离苦海。
 
 # 视频版本，可以点击跳转到`Bilibili`观看
+
+视频录制的时间可能有些早，但是内容完全一样，若是视频无法复现，可以先按照博客的图文进行操作，若还是失败，可以在视频平台给我私信。
 
 <div style="display: flex; justify-content: center; margin: 2rem 0;">
   <iframe 

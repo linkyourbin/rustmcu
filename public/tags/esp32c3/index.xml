@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Esp32C3 on RUST MCU BLOG</title><link>http://localhost:1313/tags/esp32c3/</link><description>Recent content in Esp32C3 on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Mon, 18 Aug 2025 14:38:28 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/esp32c3/index.xml" rel="self" type="application/rss+xml"/><item><title>ESP32C3读取DHT11温湿度信息</title><link>http://localhost:1313/esp32/esp32c3_dht11/</link><pubDate>Mon, 18 Aug 2025 14:38:28 +0800</pubDate><guid>http://localhost:1313/esp32/esp32c3_dht11/</guid><description>&lt;h1 id="前言和实验结果">前言和实验结果&lt;/h1>
+&lt;blockquote>
+&lt;p>跳过&lt;code>Hello World&lt;/code>，即点亮&lt;code>LED&lt;/code>，直接实战读取&lt;code>DHT11&lt;/code>温湿度传感器。&lt;/p>&lt;/blockquote>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/memes/exhausted.jpg">&lt;/p>
+&lt;p>最后实现的效果如下。&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/esp32c3/dht11/dht11-measuring-result.png">&lt;/p>
+&lt;blockquote>
+&lt;p>如上图，可以在终端&lt;code>Terminal&lt;/code>里直接看到&lt;code>DHT11&lt;/code>测量到的温湿度信息，无需额外的串口。终端里也支持中文信息输出，感兴趣可以自己上手实测。&lt;/p>&lt;/blockquote>
+&lt;h1 id="使用esp-generate生成模板工程">使用&lt;code>esp-generate&lt;/code>生成模板工程&lt;/h1>
+&lt;blockquote>
+&lt;p>由于过程具有重复性，故不再重复演示，请点击跳转&lt;a href="http://localhost:1313/esp32/dht11/esp-generate-template/" style="color: #e16054ff; font-weight: bold; font-style: italic;">使用esp-generate生成一个ESP32初始工程&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;h1 id="打开工程">打开工程&lt;/h1>
+&lt;ul>
+&lt;li>导入需要用到的&lt;code>crate&lt;/code>，在工程根目录下打开终端，输入以下命令，并按下回车（&lt;code>Enter&lt;/code>）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="cl">&lt;span class="n">cargo&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">add&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">esp32&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">dht11&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">rs&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在&lt;code>main.rs&lt;/code>里输入以下代码&lt;/p>
+&lt;ul>
+&lt;li>在头部的位置，先引入需要使用的&lt;code>crate&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="cl">&lt;span class="k">use&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">esp32_dht11_rs&lt;/span>::&lt;span class="p">{&lt;/span>&lt;span class="no">DHT11&lt;/span>&lt;span class="p">};&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">use&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">esp_hal&lt;/span>::&lt;span class="n">delay&lt;/span>::&lt;span class="n">Delay&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>接着，来到&lt;code>main&lt;/code>函数里&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">delay&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Delay&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">dht11&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="no">DHT11&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">peripherals&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="no">GPIO0&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">delay&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">dht11_read_counter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>再将以下内容复制到&lt;code>loop&lt;/code>函数里&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="cl">&lt;span class="k">match&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">dht11&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nb">Ok&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">m&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="fm">println!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;DHT11 TEMP is: &lt;/span>&lt;span class="si">{}&lt;/span>&lt;span class="s">℃ DHT11 HUMI is:&lt;/span>&lt;span class="si">{}&lt;/span>&lt;span class="s">% measuring for [NO.&lt;/span>&lt;span class="si">{:?}&lt;/span>&lt;span class="s">] time&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">m&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">temperature&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">m&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">humidity&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">dht11_read_counter&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nb">Err&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">error&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="fm">println!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;error occured: &lt;/span>&lt;span class="si">{:?}&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">error&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Timer&lt;/span>::&lt;span class="n">after_millis&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">2000&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="k">await&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">dht11_read_counter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>断电前提下，连接硬件&lt;/p></description></item></channel></rss>
