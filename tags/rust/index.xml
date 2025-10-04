@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Rust on RUST MCU BLOG</title><link>https://rustmcu.com/tags/rust/</link><description>Recent content in Rust on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Sat, 04 Oct 2025 23:58:12 +0800</lastBuildDate><atom:link href="https://rustmcu.com/tags/rust/index.xml" rel="self" type="application/rss+xml"/><item><title>Ssd1306</title><link>https://rustmcu.com/py32/ssd1306/</link><pubDate>Sat, 04 Oct 2025 23:58:12 +0800</pubDate><guid>https://rustmcu.com/py32/ssd1306/</guid><description>&lt;h1 id="先说点废话">先说点废话&lt;/h1>
+&lt;p>这个系列是在意料之外的，起因是，很久之前在&lt;code>eeworld&lt;/code>论坛看了一场&lt;code>rust+py32&lt;/code>嵌入式直播，在直播过程中，提出了一些自己的疑惑，并且得到了较为满意的答疑。😊&lt;/p>
+&lt;p>事后就再没关注过了，直到前几天，论坛的管理员通过预留的个人信息添加了我的微信，并且说明，我中奖了，奖品是一块&lt;code>py32f030k28t6&lt;/code> &lt;code>rust&lt;/code>开发板。&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/gift_from_live.png">&lt;/p>
+&lt;p>板子大概就长这个样子。&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/board_overview.png">&lt;/p>
+&lt;p>到手之后，是这样的。&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/raw_01.jpg">
+&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/raw_02.jpg">&lt;/p>
+&lt;p>焊接好了。&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/soldering_done.jpg">&lt;/p>
+&lt;p>既然都焊接好了，那就继续写（CV）点代码试一试吧！&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/memes/good-00.jpg">&lt;/p>
+&lt;hr>
+&lt;h1 id="前言">前言&lt;/h1>
+&lt;p>查阅资料可知，&lt;code>py32f030k28t6&lt;/code>的硬件资源大概如下：&lt;/p>
+&lt;ul>
+&lt;li>32位ARM@Cortex-M0+&lt;/li>
+&lt;li>48MHz Max&lt;/li>
+&lt;li>FLASH : 64K Max&lt;/li>
+&lt;li>SRAM : 8K Max&lt;/li>
+&lt;li>1*12bit ADC&lt;/li>
+&lt;li>1*16bit Advanced TIM1&lt;/li>
+&lt;li>4*16bit TIM(3/14/16/17)&lt;/li>
+&lt;li>1*LPTIM&lt;/li>
+&lt;li>1*IWDT&lt;/li>
+&lt;li>1*WWDT&lt;/li>
+&lt;li>2*SPI&lt;/li>
+&lt;li>1*IIC&lt;/li>
+&lt;li>2*USART&lt;/li>
+&lt;/ul>
+&lt;p>从x宝搜索可知，这款芯片不到1￥，如此对比的话，某些x1单片机的性价比就不值一提了。&lt;/p>
+&lt;p>废话不多说，搞点代码，添加一点灵魂！！！&lt;/p>
+&lt;p>你知道我的，肯定不可能从&lt;code>svd2rust&lt;/code>开始写，肯定是先去最大的同性交友网站看看喽。&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/memes/greeting-00.gif">&lt;/p>
+&lt;p>&lt;code>Github&lt;/code>，启动！&lt;/p>
+&lt;p>很容易就找到了！！！&lt;/p>
+&lt;p>二次元头像，中文头像！！！我去，全是大佬！！！&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/github_repo_01.png">&lt;/p>
+&lt;p>读一读&lt;code>README&lt;/code>，不错不错，完成度很高！&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/github_repo_02.png">&lt;/p>
+&lt;p>那还说啥了，&lt;code>CV&lt;/code>，启动！&lt;/p>
+&lt;h1 id="cv启动">CV，启动！&lt;/h1>
+&lt;p>经过一番简单的适配后，建立好了工程。&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/project_done.png">&lt;/p>
+&lt;p>先用&lt;code>ST-Link&lt;/code>试试。&lt;/p>
+&lt;p>cargo run!!!!!!!!!&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/falsh_ok.png">&lt;/p>
+&lt;p>终端信息正常，看看屏幕呢。&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/bingo_done.jpg">&lt;/p>
+&lt;p>正常显示出代码预设的内容。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">//屏幕显示部分的代码
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="n">Text&lt;/span>::&lt;span class="n">with_baseline&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;py32&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Point&lt;/span>::&lt;span class="n">zero&lt;/span>&lt;span class="p">(),&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">text_style&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Baseline&lt;/span>::&lt;span class="n">Top&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">draw&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">display&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">unwrap&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Text&lt;/span>::&lt;span class="n">with_baseline&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;rust&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Point&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">16&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">text_style&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Baseline&lt;/span>::&lt;span class="n">Top&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">draw&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">display&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">unwrap&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Text&lt;/span>::&lt;span class="n">with_baseline&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;bin&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Point&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">45&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">text_style&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Baseline&lt;/span>::&lt;span class="n">Top&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">draw&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">display&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">unwrap&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">raw&lt;/span>: &lt;span class="nc">ImageRaw&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">BinaryColor&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">ImageRaw&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="fm">include_bytes!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;../rust.raw&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">64&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">im&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Image&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">raw&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Point&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">32&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">im&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">draw&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">display&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">unwrap&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">display&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">flush&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="n">unwrap&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>至此，又在一款国产芯片上，使用&lt;code>rust&lt;/code>点亮了屏幕。&lt;/p></description></item><item><title>Blinky</title><link>https://rustmcu.com/rp/blinky/</link><pubDate>Thu, 14 Aug 2025 19:00:25 +0800</pubDate><guid>https://rustmcu.com/rp/blinky/</guid><description>&lt;hr></description></item><item><title>博客介绍</title><link>https://rustmcu.com/home/intro/</link><pubDate>Thu, 14 Aug 2025 18:40:05 +0800</pubDate><guid>https://rustmcu.com/home/intro/</guid><description>&lt;hr>
+&lt;h1 id="overview">Overview🦀&lt;/h1>
+&lt;blockquote>
+&lt;p>What offered？&lt;/p>&lt;/blockquote>
+&lt;ul>
+&lt;li>基础的&lt;code>Rust&lt;/code>嵌入式知识。
+&lt;ul>
+&lt;li>防止劝退，不会从寄存器开发讲起，大多数时候，仅会演示如何编写模块驱动，或是协调多个模块工作。&lt;/li>
+&lt;li>关键词
+&lt;ul>
+&lt;li>&lt;code>vscode&lt;/code> ：“最好用”的代码编辑器&lt;/li>
+&lt;li>&lt;code>bash&lt;/code> ：编写特定的自动化脚本&lt;/li>
+&lt;li>&lt;code>python&lt;/code> ：图像处理，简单&lt;code>GUI&lt;/code>快速实现，自动化脚本编写&lt;/li>
+&lt;li>&lt;code>probe-rs&lt;/code> ：调试嵌入式程序，或许你没听过，但这不是重点&lt;/li>
+&lt;li>&lt;code>STM32CubeMX&lt;/code> ：查看&lt;code>STM32&lt;/code>系列芯片的外设，利好&lt;code>PCB&lt;/code>设计&lt;/li>
+&lt;li>&lt;code>Adobe illustrator&lt;/code>：快速绘制异形板框&lt;/li>
+&lt;li>&lt;code>Anaconda&lt;/code> ：管理&lt;code>Python&lt;/code>开发环境，一个开发场景使用一个特定的&lt;code>Python&lt;/code>环境&lt;/li>
+&lt;li>&lt;code>embassy&lt;/code> ：&lt;code>Rust&lt;/code>嵌入式的异步框架，目前较为成熟的开发框架&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>2/4&lt;/code>层PCB设计知识，快速验证Demo
+&lt;ul>
+&lt;li>&lt;code>KiCAD&lt;/code> ：开源PCB设计软件&lt;/li>
+&lt;li>&lt;code>Altium Designer(trial version)&lt;/code> ： 芯片原厂都在使用的PCB设计软件&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="me--rustmcu">me &amp;amp; rustmcu&lt;/h1>
+&lt;ul>
+&lt;li>MCU
+&lt;ul>
+&lt;li>STM32
+&lt;ul>
+&lt;li>Fxx&lt;/li>
+&lt;li>Hxx&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>ESP32
+&lt;ul>
+&lt;li>ESP32C3&lt;/li>
+&lt;li>ESP32C6&lt;/li>
+&lt;li>ESP32S3&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>RP Pico
+&lt;ul>
+&lt;li>RP2040 Pico&lt;/li>
+&lt;li>Rp235x Pico2&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>现在还是学生，尚未工作&lt;/li>
+&lt;li>建站仅是记录，顺便分享&lt;/li>
+&lt;li>教程未必严谨，按需学习&lt;/li>
+&lt;/ul></description></item><item><title>杂记/小记/章节介绍</title><link>https://rustmcu.com/miscellanea/miscellanea/</link><pubDate>Thu, 14 Aug 2025 18:37:26 +0800</pubDate><guid>https://rustmcu.com/miscellanea/miscellanea/</guid><description>&lt;p>这一部分主要整合一些不方便进行归类的内容，其中可能会涵盖&lt;code>PCB&lt;/code>设计，&lt;code>大模型微调&lt;/code>（你没听错，你甚至能在一个&lt;code>RUST MCU&lt;/code>的博客里看到微调大模型的技巧），&lt;code>上位机&lt;/code>开发，&lt;code>Rust嵌入式小项目&lt;/code>，&lt;code>C&lt;/code>嵌入式，&lt;code>Rust&lt;/code>编写实用工具等内容。&lt;/p>
+&lt;hr></description></item></channel></rss>
