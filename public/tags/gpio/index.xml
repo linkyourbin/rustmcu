@@ -27,7 +27,7 @@
 &lt;tbody>
 &lt;tr>
 &lt;td>LED&lt;/td>
-&lt;td>PC13&lt;/td>
+&lt;td>PC0&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>ST-Link SWDIO&lt;/td>
@@ -51,6 +51,7 @@
 &lt;hr>
 &lt;h1 id="创建工程">创建工程&lt;/h1>
 &lt;p>一般来说，可以直接使用一些别人写好的工具来创建模板（在&lt;code>crates.io&lt;/code>上可以找到），类似&lt;code>esp-generate&lt;/code>这样的工具，但是，由于&lt;code>rust+embassy&lt;/code>一直都很活跃，使用别人的模板，难以保证体验最新特性，所以，介绍一下如何从&lt;code>cargo new xxx&lt;/code>开始一个嵌入式&lt;code>rust&lt;/code>的工程。&lt;/p>
+&lt;h2 id="创建空白工程">创建空白工程&lt;/h2>
 &lt;ol>
 &lt;li>创建一个空白工程&lt;/li>
 &lt;/ol>
@@ -70,27 +71,20 @@
 &lt;/ol>
 &lt;p>工程目录如下图所示，标准的&lt;code>hello world&lt;/code>工程。&lt;/p>
 &lt;p>&lt;img loading="lazy" src="http://localhost:1313/stm32/01-blinky/01_open_project.png">&lt;/p>
-&lt;ol start="3">
-&lt;li>移植工程&lt;/li>
-&lt;/ol>
+&lt;h2 id="移植embassy">移植&lt;code>embassy&lt;/code>&lt;/h2>
 &lt;p>参考&lt;code>embassy&lt;/code>仓库的工程进行工程移植，点击跳转&lt;a href="https://github.com/embassy-rs/embassy/tree/main/examples/stm32f4">&lt;code>embassy stm32f4 examples&lt;/code>&lt;/a>&lt;/p>
-&lt;ol start="4">
-&lt;li>在自己的工程里创建两个目录，并且新建文件
-&lt;ol>
-&lt;li>&lt;code>.cargo&lt;/code>
-&lt;ol>
-&lt;li>&lt;code>config.toml&lt;/code>&lt;/li>
-&lt;/ol>
-&lt;/li>
-&lt;li>&lt;code>.vscode&lt;/code>
-&lt;ol>
-&lt;li>&lt;code>settings.json&lt;/code>&lt;/li>
-&lt;/ol>
-&lt;/li>
-&lt;/ol>
-&lt;/li>
-&lt;/ol>
-&lt;p>将以下图中内容，&lt;code>.cargo/config.toml&lt;/code>里
+&lt;p>在自己的工程根目录里创建两个目录，并且新建文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-plaintext" data-lang="plaintext">&lt;span class="line">&lt;span class="cl">.config/config.toml
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.vscode/settings.json
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>将以下图中内容，复制到&lt;code>.cargo/config.toml&lt;/code>里
 &lt;img loading="lazy" src="http://localhost:1313/stm32/01-blinky/02_embassy_config.png">&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
