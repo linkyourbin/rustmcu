@@ -53,6 +53,7 @@ params:
     - stm32   
     - esp32   
     - rp      
+    - py32
     - miscellanea
     - toolchain
     - search
@@ -107,14 +108,19 @@ menu:
       weight: 5
       pre: "<i class='fa fa-raspberry-pi'></i>"
 
+    - name: PY32
+      url: /categories/rp/
+      weight: 6
+      pre: "<i class='fa fa-raspberry-pi'></i>"
+
     - name: Toolchain
       url: /categories/toolchain/
-      weight: 6
+      weight: 7
       pre: "<i class='fa fa-file-text'></i>"
 
     - name: Search
       url: /categories/search/
-      weight: 7
+      weight: 8
       pre: "<i class='fa fa-file-text'></i>"
 
       
