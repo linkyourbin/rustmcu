@@ -109,7 +109,7 @@ menu:
       pre: "<i class='fa fa-raspberry-pi'></i>"
 
     - name: PY32
-      url: /categories/rp/
+      url: /categories/py32/
       weight: 6
       pre: "<i class='fa py32'></i>"
 
