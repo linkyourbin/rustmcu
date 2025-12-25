@@ -2,8 +2,9 @@
 date: '2025-08-18T14:38:28+08:00'
 draft: true
 title: 'ESP32C3读取DHT11温湿度信息'
-categories : ["esp32"]  
-tags : ["esp32C3", "DHT11"]
+categories: ["esp32"]
+tags: ["esp32c3", "dht11", "sensor", "intermediate", "embassy"]
+series: ["ESP32入门系列"]
 ---
 # 前言和实验结果
 > 跳过`Hello World`，即点亮`LED`，直接实战读取`DHT11`温湿度传感器。

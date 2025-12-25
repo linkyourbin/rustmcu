@@ -1,0 +1,163 @@
+/* ============================================
+   导航栏布局优化 - 左对齐 + 无动效
+   ============================================ */
+
+/* 1. 导航栏容器 - 左对齐布局 */
+header {
+  max-width: 100%;
+  padding: 0 32px;
+}
+
+header .nav {
+  max-width: 1400px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 2. Logo区域 - 固定左侧 */
+header .logo {
+  flex-shrink: 0;
+  margin-right: auto;
+}
+
+/* 3. 菜单区域 - 右侧对齐 */
+header #menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+}
+
+header #menu ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header #menu li {
+  position: relative;
+}
+
+header #menu a {
+  display: block;
+  padding: 8px 12px;
+  color: var(--content);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* 4. 简单的悬停效果（无动画） */
+header #menu a:hover {
+  color: #CE422B;
+}
+
+/* 5. 下拉菜单样式优化 */
+header #menu ul ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 0;
+  margin-top: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+header #menu li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+}
+
+header #menu ul ul li {
+  width: 100%;
+}
+
+header #menu ul ul a {
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+header #menu ul ul a:hover {
+  background: rgba(206, 66, 43, 0.1);
+}
+
+/* 6. 主题切换按钮位置 */
+header #theme-toggle {
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+/* 7. 响应式：移动端 */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 0 16px;
+  }
+
+  header #menu {
+    gap: 16px;
+  }
+
+  header #menu ul {
+    gap: 16px;
+  }
+
+  header #menu a {
+    font-size: 14px;
+    padding: 6px 8px;
+  }
+}
+
+/* 8. 禁用所有导航栏动画 */
+header,
+header *,
+header #menu,
+header #menu * {
+  animation: none !important;
+  transition: color 0.2s ease, background 0.2s ease, opacity 0.2s ease, visibility 0.2s ease !important;
+}
+
+/* 9. 防止竖线跳动 */
+header #menu::after,
+header #menu::before,
+header nav::after,
+header nav::before,
+header #menu li:last-child::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* 10. 确保布局稳定 */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--theme);
+  border-bottom: 1px solid var(--border);
+}
+
+/* 11. Logo和菜单对齐 */
+header .nav {
+  height: 64px;
+  align-items: center;
+}
+
+/* 12. 移除多余间距 */
+header #menu {
+  margin: 0;
+}
+
+header .logo {
+  margin: 0;
+  padding: 0;
+}

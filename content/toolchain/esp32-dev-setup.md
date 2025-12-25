@@ -2,8 +2,9 @@
 date: '2025-08-17T13:49:27+08:00'
 draft: true
 title: '一分钟，搭建ESP32 Rust开发环境'
-categories : ["toolchain"]  
-tags : ["esp32"]
+categories: ["toolchain"]
+tags: ["esp32", "setup", "espup", "espflash", "beginner"]
+series: ["开发工具链"]
 ---
 # 注意
 

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Setup on RUST MCU BLOG</title><link>http://localhost:1313/tags/setup/</link><description>Recent content in Setup on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Sun, 17 Aug 2025 14:14:23 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/setup/index.xml" rel="self" type="application/rss+xml"/><item><title>一分钟，搭建Rust RP 2040/2350 Pico(2)开发环境</title><link>http://localhost:1313/toolchain/rpx-picox-dev-setup/</link><pubDate>Sun, 17 Aug 2025 14:14:23 +0800</pubDate><guid>http://localhost:1313/toolchain/rpx-picox-dev-setup/</guid><description>&lt;p>由于已经在&lt;code>五分钟，带你从安装STM32 Rust嵌入式开发环境，到脱离苦海&lt;/code>这篇博客里详细展示了如何搭建&lt;code>基座环境&lt;/code>，故本篇博客，不会从头开始，只需要安装对应的&lt;code>target&lt;/code>即可。&lt;/p>
+&lt;p>查阅官网资料得知：&lt;/p>
+&lt;p>&lt;code>RP 2040 Pico&lt;/code>部分重要信息如下&lt;/p>
+&lt;ul>
+&lt;li>Dual ARM Cortex-M0+ @ 133MHz&lt;/li>
+&lt;/ul>
+&lt;p>打开终端，安装对应的&lt;code>target&lt;/code>（理解为交叉编译工具）&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rustup target add thumbv6m-none-eabi
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>RP 2350 Pico2&lt;/code>部分重要信息如下&lt;/p>
+&lt;ul>
+&lt;li>Dual Cortex-M33 or Hazard3 processors at 150 MHz
+打开终端，安装对应的&lt;code>target&lt;/code>（理解为交叉编译工具）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rustup target add thumbv8m.main-none-eabihf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>之后更新的教程，会侧重使用&lt;code>RP 2350 Pico2&lt;/code>进行演示。&lt;/p></description></item><item><title>一分钟，搭建ESP32 Rust开发环境</title><link>http://localhost:1313/toolchain/esp32-dev-setup/</link><pubDate>Sun, 17 Aug 2025 13:49:27 +0800</pubDate><guid>http://localhost:1313/toolchain/esp32-dev-setup/</guid><description>&lt;h1 id="注意">注意&lt;/h1>
+&lt;p>由于一部分工具链可以复用，理解为将之前的开发环境作为基座，所以不再要求从头开始单独配置&lt;code>ESP32&lt;/code>的开发环境，请先阅读完&lt;code>五分钟，带你从安装STM32 Rust嵌入式开发环境，到脱离苦海&lt;/code>这篇博客，再继续接下来的操作。&lt;/p>
+&lt;hr>
+&lt;h1 id="按照顺序执行以下命令">按照顺序，执行以下命令&lt;/h1>
+&lt;p>只要完成了&lt;code>基座环境&lt;/code>的搭建，以下步骤就不会出错，故不再搭配图片说明。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 根据模板生成工程&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cargo install esp-generate
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># esp32开发包安装工具&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cargo binstall espup
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装esp32开发包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">espup install
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装烧录工具&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cargo install espflash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="完成以上步骤之后esp32的开发环境就搭建完毕了恭喜你的技术栈又丰富了许多">完成以上步骤之后，&lt;code>ESP32&lt;/code>的开发环境就搭建完毕了。恭喜，你的技术栈又丰富了许多。&lt;/h2></description></item><item><title>五分钟，搭建Rust嵌入式开发环境</title><link>http://localhost:1313/toolchain/stm32-dev-env-setup/</link><pubDate>Fri, 15 Aug 2025 20:53:18 +0800</pubDate><guid>http://localhost:1313/toolchain/stm32-dev-env-setup/</guid><description>&lt;p>本篇博客搭建了一个&lt;code>Rust&lt;/code>嵌入式开发的基础环境，不同的芯片，只需要在此基础上安装对应的&lt;code>toolchain&lt;/code>和&lt;code>target&lt;/code>即可，由于是&lt;code>Windows&lt;/code>环境，为了最完美的兼容和适配，我们选择&lt;code>MSVC&lt;/code>而不是&lt;code>GNU&lt;/code>，这是长期实践下来比较完美的方案，若你是新手，无脑照抄即可。&lt;/p>
+&lt;h1 id="安装rust">安装&lt;code>Rust&lt;/code>&lt;/h1>
+&lt;p>若使用国内的网络直连，安装&lt;code>Rust&lt;/code>时可能会耗费大量时间在下载环节，所以先配置一下代理（合理合法，免费使用）。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>浏览器搜索并打开&lt;a href="rsproxy.cn">&lt;code>rsproxy.cn&lt;/code>&lt;/a>，可以看到其主页介绍的用法是&lt;code>Linux&lt;/code>/&lt;code>MAC&lt;/code>系统下的常用方式，我们侧重介绍如何在&lt;code>Windows&lt;/code>系统下配置，&lt;code>Windows 10&lt;/code>/&lt;code>Windows 11&lt;/code>均可。
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rsproxy_main_page.png">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>按下键盘上的&lt;code>Win&lt;/code>键，输入&lt;code>edit environment variables for your account&lt;/code>/&lt;code>环境变量&lt;/code>，打开环境变量编辑页面。
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/env_variable_overview.png">
+图上是已经配置好的效果，具体操作方法如下&lt;/p>
+&lt;ul>
+&lt;li>点击&lt;code>Edit&lt;/code>/&lt;code>编辑&lt;/code>，将&lt;code>RUSTUP_DIST_SERVER&lt;/code>和&lt;code>https://rsproxy.cn&lt;/code>，依次填入相应位置
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rsproxy_server.png">&lt;/li>
+&lt;li>如法炮制，再将&lt;code>RUSTUP_UPDATE_ROOT&lt;/code>和&lt;code>https://rsproxy.cn/rustup&lt;/code>填入相应位置
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rsproxy_updateroot.png">&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>安装&lt;code>Rust&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe">&lt;code>Rust Installer&lt;/code>&lt;/a>，点击直接下载&lt;/li>
+&lt;li>下载完成后，双击打开即可
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_00.png">&lt;/li>
+&lt;li>输入&lt;code>1&lt;/code>，按下回车（&lt;code>Enter&lt;/code>），之后的弹窗继续点击&lt;code>Yes&lt;/code>&lt;/li>
+&lt;li>继续点击&lt;code>Continue&lt;/code>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_01.png">
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_02.png">&lt;/li>
+&lt;li>点击&lt;code>Install&lt;/code>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_03.png">&lt;/li>
+&lt;li>等待进度条跑完
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_04.png">&lt;/li>
+&lt;li>完成
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_05.png">&lt;/li>
+&lt;li>完成以上步骤之后，&lt;code>Rust Installer&lt;/code>会继续引导我们完成接下来的步骤
+&lt;ul>
+&lt;li>可以看到，已经识别到了&lt;code>host&lt;/code>, &lt;code>toolchain&lt;/code>等信息
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_06.png">&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>现在输入&lt;code>2&lt;/code>，并且按下回车（&lt;code>Enter&lt;/code>）确认
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_07.png">&lt;/li>
+&lt;li>继续回车（&lt;code>Enter&lt;/code>）
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_08.png">&lt;/li>
+&lt;li>输入&lt;code>nightly&lt;/code>，继续回车（&lt;code>Enter&lt;/code>）
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_09.png">&lt;/li>
+&lt;li>接下来一直点回车（&lt;code>Enter&lt;/code>）即可，以下是安装过程，耐心等待即可
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_10.png">&lt;/li>
+&lt;li>命令行窗口提示：&lt;code>Rust is installed now. Great!&lt;/code>，则说明安装成功
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_11.png">&lt;/li>
+&lt;li>按下回车（&lt;code>Enter&lt;/code>）即可&lt;/li>
+&lt;li>打开&lt;code>Visual Studio Installer&lt;/code>，安装一些必备组件，之后编译项目或者工具的时候需要用到，点击&lt;code>Modify&lt;/code>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_12.png">&lt;/li>
+&lt;li>勾选&lt;code>Desktop development with C++&lt;/code>，点击&lt;code>Modify&lt;/code>，之后的弹窗点击&lt;code>Yes&lt;/code>即可
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_13.png">&lt;/li>
+&lt;li>等待进度条跑满（下载速度能到&lt;code>100MB/s&lt;/code>，使用&lt;code>SSD&lt;/code>的情况下，估计两分钟就完成了）
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_14.png">&lt;/li>
+&lt;li>安装完成会再次回到这个界面，关闭即可
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_15.png">&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>若只是安装&lt;code>Rust&lt;/code>，并且只是用标准库（无法做嵌入式开发），则完成以上步骤即可，但&lt;code>Rust&lt;/code>嵌入式会频繁使用到&lt;a href="https://crates.io/">&lt;code>crates.io&lt;/code>&lt;/a>的一些&lt;code>crate&lt;/code>（理解成其他语言的库/模块），所以还需要配置拉取&lt;code>rsproxy&lt;/code>提供的镜像（一分钟更新一次，可以近似理解为不会过时），具体操作步骤如下&lt;/p>
+&lt;ul>
+&lt;li>按下&lt;code>Win&lt;/code>+&lt;code>E&lt;/code>，打开资源管理器，进入&lt;code>C&lt;/code>盘下的&lt;code>user&lt;/code>目录，进入当前用户目录（我的是&lt;code>Admin&lt;/code>，顺便一提，用户名最好是英文或者数字，不要用中文或者夹杂一些其他符号），继续进入&lt;code>.cargo&lt;/code>目录，如果顺利，你当前的&lt;code>PWD&lt;/code>应该类似是这样的：&lt;code>C:\Users\Admin\.cargo&lt;/code>，紧接着复制&lt;code>rsproxy&lt;/code>主页代码块里的配置文件
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rsproxy_crates_io.png">&lt;/li>
+&lt;li>在当前目录下（&lt;code>C:\Users\Admin\.cargo&lt;/code>）新建一个&lt;code>config.toml&lt;/code>文件，将以下&lt;code>toml&lt;/code>配置，粘贴进去（可以新建一个&lt;code>config.txt&lt;/code>文件，将内容粘贴进去后，再将后缀更改为&lt;code>toml&lt;/code>即可）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">source&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">crates-io&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">replace-with&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s1">&amp;#39;rsproxy-sparse&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">source&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">rsproxy&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">registry&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;https://rsproxy.cn/crates.io-index&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">source&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">rsproxy-sparse&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">registry&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;sparse+https://rsproxy.cn/index/&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">registries&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">rsproxy&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">index&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;https://rsproxy.cn/crates.io-index&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">net&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">git-fetch-with-cli&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h1 id="安装实用工具">安装实用工具&lt;/h1>
+&lt;ul>
+&lt;li>代码编辑软件和插件
+&lt;ul>
+&lt;li>软件
+&lt;ul>
+&lt;li>选用&lt;code>vscode&lt;/code>作为编辑器足矣
+&lt;ul>
+&lt;li>至于&lt;code>nvim&lt;/code>和&lt;code>zed&lt;/code>或者是其余的&lt;code>editor&lt;/code>/&lt;code>IDE&lt;/code>，并不适合新手入门，而且&lt;code>vscode&lt;/code>也不算过时&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>插件
+&lt;ul>
+&lt;li>&lt;code>rust-lang.rust-analyzer&lt;/code>：提供&lt;code>Rust LSP&lt;/code>，当前最优秀的&lt;code>Rust&lt;/code>语言服务器，&lt;code>vscode + RA&lt;/code>的好用程度远超&lt;code>JetBrains&lt;/code>家的&lt;code>RustRover&lt;/code>&lt;/li>
+&lt;li>&lt;code>fill-labs.dependi&lt;/code>：帮助管理&lt;code>crate&lt;/code>，更直观的看到当前工程下&lt;code>crate&lt;/code>的版本信息&lt;/li>
+&lt;li>&lt;code>tamasfe.even-better-toml&lt;/code>：提供&lt;code>toml&lt;/code>语法高亮和补全&lt;/li>
+&lt;li>&lt;code>probe-rs.probe-rs-debugger&lt;/code>：调试服务器
+&lt;ul>
+&lt;li>以上所有插件，直接复制名称，粘贴在&lt;code>vscode&lt;/code>的插件市场的搜索栏里，回车搜索，点击安装即可&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>安装交叉编译工具链和下常用工具
+&lt;ul>
+&lt;li>打开命令行，输入以下命令，并按下回车（&lt;code>Enter&lt;/code>），按照顺序执行即可&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 请自行查阅数据手册确定自己的芯片架构和硬件浮点支持&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Cortex-M0 和 Cortex-M0+（无硬件浮点）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rustup target add thumbv6m-none-eabi
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Cortex-M3（无硬件浮点）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rustup target add thumbv7m-none-eabi
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Cortex-M4（无硬件浮点）和 Cortex-M7（无硬件浮点）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rustup target add thumbv7em-none-eabi
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Cortex-M4F（带硬件浮点）和 Cortex-M7F（带硬件浮点）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rustup target add thumbv7em-none-eabihf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装 cargo-binstall，用于快速安装已打包的工具&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cargo install cargo-binstall
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装二进制工具（如 objdump/size 等）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cargo install cargo-binutils
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装 probe-rs 相关调试工具（后续用于烧录/调试）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 执行完之后，会要求输入yes/no，输入yes，回车即可&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cargo binstall probe-rs-tools
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>安装以上工具时，会先拉取依赖的&lt;code>crate&lt;/code>，再进行编译，&lt;code>CPU&lt;/code>会瞬间跑满，风扇起飞，给出一个执行&lt;code>cargo install cargo-binstall&lt;/code>的参考
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/tools_compling_process.png">&lt;/li>
+&lt;/ul>
+&lt;p>综上，搭建了一个基础的&lt;code>Rust&lt;/code>嵌入式开发环境，之后的教程主要使用&lt;code>STM32&lt;/code>, &lt;code>ESP32&lt;/code>, &lt;code>RP2040 Pico, RP2350 Pico2&lt;/code>等&lt;code>MCU&lt;/code>进行演示。&lt;/p></description></item></channel></rss>

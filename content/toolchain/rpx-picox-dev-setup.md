@@ -2,8 +2,9 @@
 date: '2025-08-17T14:14:23+08:00'
 draft: true
 title: '一分钟，搭建Rust RP 2040/2350 Pico(2)开发环境'
-categories : ["toolchain"]  
-tags : ["rp"]
+categories: ["toolchain"]
+tags: ["rp2040", "rp2350", "pico", "setup", "beginner"]
+series: ["开发工具链"]
 ---
 由于已经在`五分钟，带你从安装STM32 Rust嵌入式开发环境，到脱离苦海`这篇博客里详细展示了如何搭建`基座环境`，故本篇博客，不会从头开始，只需要安装对应的`target`即可。
 

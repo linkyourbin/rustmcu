@@ -1,0 +1,1190 @@
+/* ========================================
+   RUST MCU 现代化设计 - 仿照 ZolinLee 风格
+   ======================================== */
+
+/* ===== 全局样式 ===== */
+:root {
+  --bg-primary: #1a1f2e;
+  --bg-secondary: #252b3b;
+  --bg-card: #2a3142;
+  --text-primary: #e4e6eb;
+  --text-secondary: #b0b3b8;
+  --accent-color: #CE422B;
+  --accent-hover: #ff6b4a;
+  --border-color: #3a4152;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* 强制深色主题 */
+body {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* 但允许主题切换时的过渡 */
+body:not(.dark) {
+  background: #ffffff !important;
+  color: #1a1a1a !important;
+}
+
+body:not(.dark) .main {
+  background: #ffffff !important;
+}
+
+.main {
+  background: var(--bg-primary) !important;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 0;
+  overflow: visible;
+}
+
+/* ===== 1. 顶部导航栏重新设计 ===== */
+header.header {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .nav {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 60px;
+  gap: 32px;
+}
+
+/* Logo/品牌名 - 隐藏 */
+header .logo {
+  display: none;
+}
+
+/* 导航菜单 */
+header #menu {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  justify-content: center;
+}
+
+header #menu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header #menu li a {
+  color: var(--text-secondary) !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: color 0.3s ease;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+header #menu li a:hover,
+header #menu li a span.active {
+  color: var(--text-primary) !important;
+  border-bottom-color: var(--accent-color);
+}
+
+/* 主题切换按钮 - 移到右侧 */
+header .logo-switches {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+#theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#theme-toggle:hover {
+  background: var(--bg-card);
+  border-color: var(--accent-color);
+}
+
+/* ===== 2. 主页 Profile 区域 - 头像+文字列表式设计 ===== */
+.profile {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 32px 40px;
+  animation: fadeInUp 0.8s ease-out;
+  position: relative;
+  z-index: auto;
+}
+
+.profile .profile_inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: auto;
+  gap: 20px;
+}
+
+/* 头像样式 */
+.profile .profile_inner img {
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 50%;
+  filter: drop-shadow(0 8px 16px rgba(206, 66, 43, 0.3));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0;
+  align-self: flex-start;
+}
+
+.profile .profile_inner img:hover {
+  transform: scale(1.05) rotate(3deg);
+  filter: drop-shadow(0 12px 24px rgba(206, 66, 43, 0.5));
+}
+
+/* 副标题样式 */
+.profile-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+  text-align: left;
+  width: 100%;
+}
+
+/* 描述列表样式 */
+.profile-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.profile-description ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.profile-description li {
+  margin-bottom: 10px;
+  padding-left: 8px;
+  text-align: left;
+}
+
+.profile-description li:last-child {
+  margin-bottom: 0;
+}
+
+.profile-description strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* 社交图标 */
+.profile .social-icons {
+  display: flex;
+  gap: 16px;
+  margin: 12px 0 0 0;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.profile .social-icons a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  font-size: 1.4rem;
+}
+
+.profile .social-icons a:hover {
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+/* ===== 3. 动画效果 ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===== 4. 文章列表/卡片样式 ===== */
+.post-entry {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.post-entry:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-color) !important;
+}
+
+.post-entry .entry-header h2 {
+  color: var(--text-primary) !important;
+}
+
+.post-entry .entry-content {
+  color: var(--text-secondary) !important;
+}
+
+/* ===== 5. 响应式设计 ===== */
+@media screen and (max-width: 1024px) {
+  .profile {
+    padding: 60px 24px 50px;
+  }
+
+  .profile .profile_inner img {
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  header .nav {
+    justify-content: space-between;
+  }
+
+  header #menu {
+    gap: 16px;
+    flex: 0;
+  }
+
+  header #menu li a {
+    font-size: 0.85rem;
+    padding: 6px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header .nav {
+    padding: 12px 16px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+  }
+
+  header #menu {
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex: 1;
+    justify-content: flex-start;
+  }
+
+  header #menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  header #menu li a {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  header .logo-switches {
+    flex-shrink: 0;
+  }
+
+  .profile {
+    padding: 50px 20px 40px;
+  }
+
+  .profile .profile_inner img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .profile-subtitle {
+    font-size: 1rem;
+  }
+
+  .profile-description {
+    font-size: 0.95rem;
+  }
+
+  .profile .social-icons {
+    gap: 14px;
+  }
+
+  .profile .social-icons a {
+    width: 38px;
+    height: 38px;
+    font-size: 1.3rem;
+  }
+}
+
+/* 超小屏幕优化 */
+@media screen and (max-width: 480px) {
+  header .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  header #menu {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  header #menu li a {
+    font-size: 0.75rem;
+  }
+
+  .profile {
+    padding: 40px 16px 30px;
+  }
+
+  .profile .profile_inner img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .profile-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .profile-description {
+    font-size: 0.9rem;
+  }
+
+  .profile .social-icons {
+    gap: 12px;
+  }
+
+  .profile .social-icons a {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+}
+
+/* ===== 6. 页脚样式 ===== */
+footer.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary) !important;
+  padding: 24px 32px;
+  text-align: center;
+  margin-top: 80px;
+  position: relative;
+  z-index: 10;
+  clear: both;
+}
+
+footer.footer span {
+  color: var(--text-secondary) !important;
+}
+
+footer.footer a {
+  color: var(--accent-color) !important;
+}
+
+/* ===== 7. 滚动条样式 ===== */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* ===== 8. 返回顶部按钮 ===== */
+#top-link {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow-md);
+}
+
+#top-link:hover {
+  background: var(--accent-color) !important;
+  border-color: var(--accent-color);
+  transform: translateY(-4px);
+}
+
+/* ===== 9. 选择文本样式 ===== */
+::selection {
+  background: rgba(206, 66, 43, 0.3);
+  color: var(--text-primary);
+}
+
+/* ===== 10. 链接样式 ===== */
+a {
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* ===== 11. 副标题样式 ===== */
+.profile .subtitle {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* ===== 12. 确保卡片布局正确 ===== */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profile-card img {
+  align-self: flex-start;
+}
+
+.profile-card h1 {
+  align-self: flex-start;
+  text-align: left;
+}
+
+/* ===== 13. 修复深色模式变量 ===== */
+.dark {
+  --theme: var(--bg-primary);
+  --entry: var(--bg-card);
+  --primary: var(--text-primary);
+  --secondary: var(--text-secondary);
+  --tertiary: var(--bg-secondary);
+  --content: var(--text-primary);
+  --hljs-bg: var(--bg-card);
+  --code-bg: var(--bg-secondary);
+  --border: var(--border-color);
+}
+
+/* ===== 14. 浅色主题支持 ===== */
+body:not(.dark) {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a5568;
+  --border-color: #d1d5db;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+}
+
+body:not(.dark) header.header {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+body:not(.dark) .profile-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+}
+
+body:not(.dark) .post-entry {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+body:not(.dark) footer.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary) !important;
+}
+
+body:not(.dark) .profile .social-icons a {
+  color: var(--text-primary);
+}
+
+body:not(.dark) .profile .social-icons a:hover {
+  color: var(--accent-color);
+}
+
+body:not(.dark) .profile .profile_inner h1 {
+  color: var(--text-primary);
+}
+
+body:not(.dark) .profile-subtitle {
+  color: var(--text-secondary);
+}
+
+body:not(.dark) .profile-description {
+  color: var(--text-secondary);
+}
+
+body:not(.dark) .profile-description strong {
+  color: var(--text-primary);
+}
+
+body:not(.dark) #top-link {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary) !important;
+}
+
+/* 浅色模式下的文字对比度增强 */
+body:not(.dark) header #menu li a {
+  color: var(--text-secondary) !important;
+}
+
+body:not(.dark) header #menu li a:hover,
+body:not(.dark) header #menu li a span.active {
+  color: var(--text-primary) !important;
+}
+
+body:not(.dark) header .logo a {
+  color: var(--text-primary) !important;
+}
+
+body:not(.dark) .post-entry .entry-header h2 {
+  color: var(--text-primary) !important;
+}
+
+body:not(.dark) .post-entry .entry-content {
+  color: var(--text-secondary) !important;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 头像优化 - 更大更突出 */
+.profile .profile_inner img {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 8px 16px rgba(206, 66, 43, 0.2));
+  border-radius: 50%;
+  width: 120px !important;
+  height: 120px !important;
+}
+
+.profile .profile_inner img:hover {
+  transform: scale(1.08) rotate(5deg);
+  filter: drop-shadow(0 12px 24px rgba(206, 66, 43, 0.4));
+}
+
+/* 标题优化 */
+.profile .profile_inner h1 {
+  animation: fadeIn 1s ease-out 0.3s both;
+  position: relative;
+  display: inline-block;
+  font-size: 2.5rem;
+  margin: 24px 0 16px;
+  background: linear-gradient(135deg, #CE422B, #ff6b4a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 副标题渐入效果 */
+.profile .profile_inner .subtitle {
+  animation: fadeIn 1s ease-out 0.6s both;
+}
+
+/* 2. 按钮增强效果 */
+.profile .buttons {
+  animation: fadeIn 1s ease-out 0.9s both;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.profile .button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid var(--border);
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 500;
+  background: var(--entry);
+}
+
+.profile .button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(206, 66, 43, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.profile .button:hover::before {
+  left: 100%;
+}
+
+.profile .button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border-color: #CE422B;
+}
+
+.profile .button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 3. 社交图标动效 */
+.profile .social-icons {
+  animation: fadeIn 1s ease-out 1.2s both;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.profile .social-icons a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--entry);
+  border: 2px solid var(--border);
+}
+
+.profile .social-icons a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #CE422B;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.profile .social-icons a:hover::after {
+  width: 100%;
+}
+
+.profile .social-icons a:hover {
+  transform: translateY(-4px) scale(1.15);
+  color: #CE422B;
+  border-color: #CE422B;
+  background: rgba(206, 66, 43, 0.1);
+  box-shadow: 0 8px 16px rgba(206, 66, 43, 0.3);
+}
+
+/* 4. 页面过渡动画 */
+.main {
+  animation: pageTransition 0.5s ease-out;
+}
+
+@keyframes pageTransition {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 5. 导航栏Logo动效 - 已禁用 */
+/* 导航栏不使用动效，保持简洁 */
+#theme-toggle,
+#menu {
+  /* transition: all 0.3s ease; */
+}
+
+#theme-toggle:hover,
+#menu:hover {
+  /* transform: scale(1.1); */
+}
+
+header .logo {
+  /* transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); */
+}
+
+header .logo:hover {
+  /* transform: translateY(-2px); */
+  /* filter: drop-shadow(0 4px 8px rgba(206, 66, 43, 0.2)); */
+}
+
+/* 6. 卡片悬停效果 */
+.post-entry {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border);
+}
+
+.post-entry:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: #CE422B;
+}
+
+.post-entry::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #CE422B, #ff6b4a);
+  transition: width 0.4s ease;
+}
+
+.post-entry:hover::before {
+  width: 100%;
+}
+
+/* 7. 滚动动画 - 修复消失问题 */
+/* 移除可能导致内容消失的动画 */
+@media (prefers-reduced-motion: no-preference) {
+  .post-entry,
+  .first-entry {
+    /* 不使用opacity初始值为0的动画 */
+    animation: none;
+  }
+}
+
+/* 移除阶梯动画延迟，防止内容消失 */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 8. 链接下划线动效 */
+.post-entry .entry-content a,
+article a {
+  position: relative;
+  text-decoration: none;
+  background: linear-gradient(to right, #CE422B, #CE422B) no-repeat;
+  background-size: 0 2px;
+  background-position: left bottom;
+  transition: background-size 0.3s ease;
+}
+
+.post-entry .entry-content a:hover,
+article a:hover {
+  background-size: 100% 2px;
+}
+
+/* 9. 代码块优化 */
+.highlight {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.highlight:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* 10. 标签动效 */
+.terms-tags a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border);
+}
+
+.terms-tags a:hover {
+  transform: scale(1.05);
+  background: #CE422B;
+  color: white;
+  border-color: #CE422B;
+  box-shadow: 0 4px 12px rgba(206, 66, 43, 0.3);
+}
+
+/* 11. 加载动画 */
+.page-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #CE422B, #ff6b4a);
+  animation: loading 2s ease-in-out infinite;
+  z-index: 9999;
+}
+
+@keyframes loading {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+/* 12. 响应式优化 */
+@media screen and (max-width: 768px) {
+  /* 主页布局 */
+  .profile {
+    padding: 50px 20px 40px;
+  }
+
+  .profile .profile_inner img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .profile-subtitle {
+    font-size: 1rem;
+  }
+
+  .profile-description {
+    font-size: 0.95rem;
+  }
+
+  .profile .social-icons {
+    gap: 14px;
+  }
+
+  .profile .social-icons a {
+    width: 38px;
+    height: 38px;
+    font-size: 1.3rem;
+  }
+
+  /* 导航栏响应式 */
+  header .nav {
+    padding: 8px 16px;
+  }
+
+  header .logo {
+    font-size: 1rem;
+  }
+
+  header #menu {
+    gap: 4px;
+  }
+
+  header #menu li a {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* 13. 深色模式优化 */
+.dark .post-entry:hover {
+  box-shadow: 0 8px 24px rgba(206, 66, 43, 0.2);
+}
+
+.dark .highlight {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 14. 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 15. 选择文本样式 */
+::selection {
+  background: rgba(206, 66, 43, 0.2);
+  color: var(--content);
+}
+
+/* 16. 焦点样式优化 */
+*:focus-visible {
+  outline: 2px solid #CE422B;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 17. 脉冲动画（用于强调） */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* 18. 渐变文字效果 */
+.gradient-text {
+  background: linear-gradient(135deg, #CE422B, #ff6b4a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 19. 返回顶部按钮增强 */
+#top-link {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#top-link:hover {
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 8px 16px rgba(206, 66, 43, 0.3);
+}
+
+/* 20. 菜单动效 - 已禁用 */
+/* 导航栏保持简洁，不使用动画效果 */
+#menu a {
+  position: relative;
+  /* transition: all 0.3s ease; */
+}
+
+#menu a::after {
+  /* content: ''; */
+  /* position: absolute; */
+  /* bottom: -4px; */
+  /* left: 0; */
+  /* width: 0; */
+  /* height: 2px; */
+  /* background: #CE422B; */
+  /* transition: width 0.3s ease; */
+}
+
+#menu a:hover::after,
+#menu a.active::after {
+  /* width: 100%; */
+}
+
+/* 简单的悬停效果 */
+#menu a:hover {
+  color: #CE422B;
+}
+
+/* 21. 导航栏优化 - 移除logo后的布局改进 */
+header .nav {
+  padding: 12px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header .logo {
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+header .logo a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+header .logo a:hover {
+  color: #CE422B;
+}
+
+/* 导航菜单优化 */
+header #menu {
+  display: flex;
+  gap: 8px;
+}
+
+header #menu li a {
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+header #menu li a:hover {
+  background: rgba(206, 66, 43, 0.1);
+  color: #CE422B;
+}
+
+header #menu li a span.active {
+  color: #CE422B;
+  font-weight: 500;
+}
+
+/* 主题切换按钮优化 */
+#theme-toggle {
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background: rgba(206, 66, 43, 0.1);
+  transform: rotate(15deg);
+}
+
+/* 22. 修复导航栏右侧竖线跳动问题 */
+header nav,
+header #menu {
+  /* 移除可能导致光标闪烁的伪元素 */
+}
+
+header #menu::after,
+header #menu::before,
+header nav::after,
+header nav::before {
+  display: none !important;
+}
+
+/* 禁用导航栏相关的光标动画 */
+header nav *,
+header #menu * {
+  caret-color: transparent;
+}
+
+/* 移除任何可能的闪烁动画 */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+header nav *[class*="blink"],
+header #menu *[class*="blink"],
+header nav *[class*="cursor"],
+header #menu *[class*="cursor"] {
+  animation: none !important;
+}
+
+/* 确保导航栏元素不会有文本光标 */
+header nav,
+header #menu,
+header nav ul,
+header #menu ul,
+header nav li,
+header #menu li {
+  cursor: default;
+  user-select: none;
+}
+
+/* 修复可能的边框动画 */
+header nav *:not(a):not(button),
+header #menu *:not(a):not(button) {
+  border: none !important;
+  outline: none !important;
+}
+
+/* 禁用所有可能导致跳动的过渡效果 */
+header nav::after,
+header nav::before {
+  content: none !important;
+}
+
+/* 移除任何意外的伪元素 */
+header li:last-child::after,
+header #menu li:last-child::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* 修复滚动条可能导致的跳动 */
+header {
+  overflow-x: hidden;
+}
+
+header nav,
+header #menu {
+  overflow: visible;
+  position: relative;
+}
+
+/* 确保导航栏宽度稳定 */
+header nav ul,
+header #menu ul {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* 移除可能的文本装饰 */
+header nav *,
+header #menu * {
+  text-decoration: none;
+}
+
+/* 禁用input光标（如果有搜索框） */
+header input {
+  caret-color: transparent;
+}
+
+header input:focus {
+  caret-color: auto;
+}

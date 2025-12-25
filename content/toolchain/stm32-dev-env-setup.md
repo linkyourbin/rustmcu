@@ -2,8 +2,9 @@
 date: '2025-08-15T20:53:18+08:00'
 draft: true
 title: '五分钟，搭建Rust嵌入式开发环境'
-categories : ["toolchain"]  
-tags : ["stm32"]
+categories: ["toolchain"]
+tags: ["rust", "setup", "vscode", "probe-rs", "beginner"]
+series: ["开发工具链"]
 ---
 
 本篇博客搭建了一个`Rust`嵌入式开发的基础环境，不同的芯片，只需要在此基础上安装对应的`toolchain`和`target`即可，由于是`Windows`环境，为了最完美的兼容和适配，我们选择`MSVC`而不是`GNU`，这是长期实践下来比较完美的方案，若你是新手，无脑照抄即可。

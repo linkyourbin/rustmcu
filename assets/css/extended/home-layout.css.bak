@@ -1,0 +1,385 @@
+/* ============================================
+   主页布局优化 - 现代简洁风格
+   ============================================ */
+
+/* 1. 主页信息卡片 */
+.home-info {
+  max-width: 800px !important;
+  margin: 60px auto 40px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.home-info .entry-content {
+  text-align: center;
+  padding: 0;
+}
+
+.home-info h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #CE422B, #ff6b4a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+}
+
+.home-info .entry-content p {
+  font-size: 20px;
+  line-height: 1.8;
+  color: var(--secondary);
+  margin-bottom: 16px;
+}
+
+.home-info .entry-content p:last-child {
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+/* 2. 快速导航卡片 */
+.main .post-entry {
+  margin-bottom: 24px;
+}
+
+/* 3. 自定义主页内容区域 */
+.home-sections {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.home-section {
+  margin-bottom: 64px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #CE422B, #ff6b4a);
+  border-radius: 2px;
+}
+
+/* 4. 功能卡片网格 */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.feature-card {
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #CE422B, #ff6b4a);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-color: #CE422B;
+}
+
+.feature-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.feature-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--content);
+}
+
+.feature-desc {
+  font-size: 14px;
+  color: var(--secondary);
+  line-height: 1.6;
+}
+
+.feature-link {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 20px;
+  background: transparent;
+  color: #CE422B;
+  border: 1px solid #CE422B;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.feature-link:hover {
+  background: #CE422B;
+  color: white;
+}
+
+/* 5. MCU平台快速入口 */
+.mcu-quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 64px;
+}
+
+.mcu-link {
+  display: block;
+  padding: 20px;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.mcu-link:hover {
+  transform: translateY(-4px);
+  border-color: #CE422B;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mcu-link-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.mcu-link-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--content);
+  margin-bottom: 4px;
+}
+
+.mcu-link-desc {
+  font-size: 12px;
+  color: var(--secondary);
+}
+
+/* 6. 统计信息 */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 24px;
+  margin: 48px 0;
+  text-align: center;
+}
+
+.stat-item {
+  padding: 24px;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.stat-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: #CE422B;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--secondary);
+}
+
+/* 7. CTA按钮组 */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 48px 0;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.cta-button-primary {
+  background: #CE422B;
+  color: white;
+  border: 2px solid #CE422B;
+}
+
+.cta-button-primary:hover {
+  background: #b53824;
+  border-color: #b53824;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(206, 66, 43, 0.3);
+}
+
+.cta-button-secondary {
+  background: transparent;
+  color: #CE422B;
+  border: 2px solid #CE422B;
+}
+
+.cta-button-secondary:hover {
+  background: rgba(206, 66, 43, 0.1);
+  transform: translateY(-2px);
+}
+
+/* 8. 最新文章列表 */
+.recent-posts {
+  margin-bottom: 48px;
+}
+
+.recent-posts .post-entry {
+  margin-bottom: 16px;
+}
+
+/* 9. 响应式布局 */
+@media screen and (max-width: 768px) {
+  .home-info h1 {
+    font-size: 32px;
+  }
+
+  .home-info .entry-content p {
+    font-size: 16px;
+  }
+
+  .feature-grid,
+  .mcu-quick-links {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-button {
+    justify-content: center;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+}
+
+/* 10. 深色模式优化 */
+.dark .feature-card:hover,
+.dark .mcu-link:hover {
+  box-shadow: 0 8px 16px rgba(206, 66, 43, 0.2);
+}
+
+.dark .stat-item {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 11. 社交图标美化 */
+.home-info + .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 32px 0 48px;
+}
+
+.home-info + .social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  color: var(--content);
+}
+
+.home-info + .social-icons a:hover {
+  background: #CE422B;
+  border-color: #CE422B;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* 12. 主页特殊样式 */
+.home .main {
+  padding-top: 40px;
+}
+
+/* 13. 面包屑隐藏（主页不需要） */
+.home .breadcrumbs {
+  display: none;
+}
+
+/* 14. 主页列表样式优化 */
+.home .post-entry {
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.home .post-entry:hover {
+  border-left-color: #CE422B;
+}
+
+/* 15. Logo和标题的间距 */
+.home-info {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

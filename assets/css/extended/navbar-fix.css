@@ -1,0 +1,255 @@
+/* ============================================
+   导航栏竖线跳动问题 - 额外修复方案
+   ============================================ */
+
+/* 方案1: 禁用所有可能的光标效果 */
+header, header *,
+.header, .header *,
+nav, nav *,
+#menu, #menu * {
+  cursor: default !important;
+  caret-color: transparent !important;
+}
+
+/* 恢复链接和按钮的正常光标 */
+header a,
+header button,
+nav a,
+nav button,
+#menu a,
+#menu button {
+  cursor: pointer !important;
+}
+
+/* 方案2: 移除所有伪元素边框和光标 */
+header *::before,
+header *::after,
+nav *::before,
+nav *::after,
+#menu *::before,
+#menu *::after {
+  border: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* 特别针对最后一个菜单项 */
+header li:last-child,
+header li:last-child::before,
+header li:last-child::after,
+nav li:last-child,
+nav li:last-child::before,
+nav li:last-child::after,
+#menu li:last-child,
+#menu li:last-child::before,
+#menu li:last-child::after {
+  border: none !important;
+  content: none !important;
+  display: none !important;
+}
+
+/* 方案3: 禁用任何动画 */
+header *,
+nav *,
+#menu * {
+  animation: none !important;
+  animation-name: none !important;
+  animation-duration: 0s !important;
+}
+
+/* 允许必要的过渡效果（如悬停） */
+header a,
+nav a,
+#menu a {
+  animation: none !important;
+  transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease !important;
+}
+
+/* 方案4: 确保没有文本输入框光标 */
+header input[type="text"],
+header input[type="search"],
+nav input[type="text"],
+nav input[type="search"] {
+  caret-color: transparent !important;
+}
+
+header input[type="text"]:focus,
+header input[type="search"]:focus,
+nav input[type="text"]:focus,
+nav input[type="search"]:focus {
+  caret-color: #CE422B !important;
+}
+
+/* 方案5: 修复主题切换按钮 */
+#theme-toggle {
+  animation: none !important;
+}
+
+#theme-toggle::before,
+#theme-toggle::after {
+  display: none !important;
+}
+
+/* 方案6: 禁用闪烁类名 */
+.blink,
+.cursor,
+.blinking,
+.cursor-blink {
+  animation: none !important;
+  display: none !important;
+}
+
+/* 方案7: 修复可能的SVG动画 */
+header svg,
+nav svg,
+#menu svg {
+  animation: none !important;
+}
+
+header svg *,
+nav svg *,
+#menu svg * {
+  animation: none !important;
+}
+
+/* 方案8: 确保导航栏不会因为内容变化而跳动 */
+header,
+nav,
+#menu {
+  contain: layout style paint;
+}
+
+/* 方案9: 修复可能的分隔符 */
+header .separator,
+header .divider,
+nav .separator,
+nav .divider,
+#menu .separator,
+#menu .divider {
+  display: none !important;
+}
+
+/* 方案10: 移除任何闪烁的边框 */
+@keyframes border-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+header *[style*="border"],
+nav *[style*="border"],
+#menu *[style*="border"] {
+  animation: none !important;
+}
+
+/* 方案11: 禁用文本选择（防止光标出现） */
+header,
+header *:not(input):not(textarea),
+nav,
+nav *:not(input):not(textarea),
+#menu,
+#menu *:not(input):not(textarea) {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+/* 方案12: 修复contenteditable元素 */
+header [contenteditable],
+nav [contenteditable],
+#menu [contenteditable] {
+  caret-color: transparent !important;
+}
+
+header [contenteditable]:focus,
+nav [contenteditable]:focus,
+#menu [contenteditable]:focus {
+  caret-color: #CE422B !important;
+}
+
+/* 方案13: 确保没有动态生成的竖线 */
+header > *:last-child::after,
+nav > *:last-child::after,
+#menu > *:last-child::after,
+header ul:last-child::after,
+nav ul:last-child::after,
+#menu ul:last-child::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* 方案14: 修复可能的JavaScript注入的样式 */
+header [style*="animation"],
+header [style*="blink"],
+nav [style*="animation"],
+nav [style*="blink"],
+#menu [style*="animation"],
+#menu [style*="blink"] {
+  animation: none !important;
+}
+
+/* 方案15: 确保固定宽度（防止布局跳动） */
+header nav {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+header nav ul {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+}
+
+/* 方案16: 移除可能的管道符 | */
+header .pipe,
+header .bar,
+nav .pipe,
+nav .bar,
+#menu .pipe,
+#menu .bar {
+  display: none !important;
+}
+
+/* 方案17: 修复logo区域 */
+header .logo {
+  animation: none !important;
+}
+
+header .logo::before,
+header .logo::after {
+  display: none !important;
+}
+
+/* 方案18: 确保没有伪类动画 */
+header *:hover::after,
+header *:hover::before,
+header *:focus::after,
+header *:focus::before {
+  animation: none !important;
+}
+
+/* 方案19: 移除任何计数器 */
+header *::before,
+nav *::before,
+#menu *::before {
+  counter-increment: none !important;
+  content: none !important;
+}
+
+header *::after,
+nav *::after,
+#menu *::after {
+  counter-increment: none !important;
+}
+
+/* 方案20: 禁用指针事件（除了链接） */
+header *:not(a):not(button):not(input) {
+  pointer-events: none;
+}
+
+header a,
+header button,
+header input {
+  pointer-events: auto;
+}

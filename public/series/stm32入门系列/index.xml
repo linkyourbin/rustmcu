@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>STM32入门系列 on RUST MCU BLOG</title><link>http://localhost:1313/series/stm32%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</link><description>Recent content in STM32入门系列 on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Thu, 14 Aug 2025 18:39:34 +0800</lastBuildDate><atom:link href="http://localhost:1313/series/stm32%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml"/><item><title>00：点亮LED（GPIO）</title><link>http://localhost:1313/stm32/blinky/</link><pubDate>Thu, 14 Aug 2025 18:39:34 +0800</pubDate><guid>http://localhost:1313/stm32/blinky/</guid><description>&lt;hr>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/memes/exhausted.jpg">&lt;/p>
+&lt;h1 id="硬件准备">硬件准备&lt;/h1>
+&lt;ul>
+&lt;li>&lt;code>STM32&lt;/code>开发板*1&lt;/li>
+&lt;li>烧录器*1
+&lt;ul>
+&lt;li>推荐使用&lt;code>ST-Link&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>LED&lt;/code>*1
+&lt;ul>
+&lt;li>若有板载&lt;code>LED&lt;/code>，则无需准备&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>杜邦线若干&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="硬件接线">硬件接线&lt;/h1>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Peri&lt;/th>
+&lt;th>STM32&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>LED&lt;/td>
+&lt;td>PC0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ST-Link SWDIO&lt;/td>
+&lt;td>SWDIO/PA13&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ST-Link SWCLK&lt;/td>
+&lt;td>SWCLk/PA14&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ST-Link GND&lt;/td>
+&lt;td>GND&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ST-Link 3V3&lt;/td>
+&lt;td>3V3&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>电路部分，如上表即可，不涉及其他外设，这样简单接线就可以工作，但是更推荐的做法是，使用&lt;code>Type-C/USB&lt;/code>给板子&lt;code>5V&lt;/code>供电，&lt;code>5V&lt;/code>直流通过&lt;code>LDO&lt;/code>或者&lt;code>DC/DC&lt;/code>转为&lt;code>3V3&lt;/code>后再给相应外设板子供电，这样会更稳定，若是部分外设需要&lt;code>5V&lt;/code>供电，但系统里并未接入&lt;code>5V&lt;/code>直流，则会导致外设无响应，或工作不正常，这是需要注意的一个点。&lt;/p>
+&lt;hr>
+&lt;h1 id="创建工程">创建工程&lt;/h1>
+&lt;p>一般来说，可以直接使用一些别人写好的工具来创建模板（在&lt;code>crates.io&lt;/code>上可以找到），类似&lt;code>esp-generate&lt;/code>这样的工具，但是，由于&lt;code>rust+embassy&lt;/code>一直都很活跃，使用别人的模板，难以保证体验最新特性，所以，介绍一下如何从&lt;code>cargo new xxx&lt;/code>开始一个嵌入式&lt;code>rust&lt;/code>的工程。&lt;/p>
+&lt;h2 id="创建空白工程">创建空白工程&lt;/h2>
+&lt;ol>
+&lt;li>创建一个空白工程&lt;/li>
+&lt;/ol>
+&lt;p>打开终端，输入：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cargo new stm32_blinky
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注意：工程名最好是&lt;code>snake_case&lt;/code>。
+&lt;img loading="lazy" src="http://localhost:1313/stm32/01-blinky/00_new_project.png">&lt;/p>
+&lt;ol start="2">
+&lt;li>使用&lt;code>vscode&lt;/code>打开所创建的工程&lt;/li>
+&lt;/ol>
+&lt;p>工程目录如下图所示，标准的&lt;code>hello world&lt;/code>工程。&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/stm32/01-blinky/01_open_project.png">&lt;/p>
+&lt;h2 id="移植embassy">移植&lt;code>embassy&lt;/code>&lt;/h2>
+&lt;p>参考&lt;code>embassy&lt;/code>仓库的工程进行工程移植，点击跳转&lt;a href="https://github.com/embassy-rs/embassy/tree/main/examples/stm32f4">&lt;code>embassy stm32f4 examples&lt;/code>&lt;/a>&lt;/p>
+&lt;p>在自己的工程根目录里创建两个目录，并且新建文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-plaintext" data-lang="plaintext">&lt;span class="line">&lt;span class="cl">.config/config.toml
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.vscode/settings.json
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>将以下图中内容，复制到&lt;code>.cargo/config.toml&lt;/code>里
+&lt;img loading="lazy" src="http://localhost:1313/stm32/01-blinky/02_embassy_config.png">&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">target&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="s1">&amp;#39;cfg(all(target_arch = &amp;#34;arm&amp;#34;, target_os = &amp;#34;none&amp;#34;))&amp;#39;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># replace STM32F407VETx with your chip as listed in `probe-rs chip list`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">runner&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;probe-rs run --chip STM32F407VETx&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">build&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">target&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;thumbv7em-none-eabihf&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">env&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">DEFMT_LOG&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;trace&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注意：以上内容并不是照抄，需要按照自己的开发板具体型号来适配芯片名称（&lt;code>--chip xxx&lt;/code>），还有编译器（&lt;code>target = &amp;quot;xxx&amp;quot;&lt;/code>）。&lt;/p></description></item></channel></rss>

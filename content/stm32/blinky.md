@@ -3,7 +3,8 @@ date = '2025-08-14T18:39:34+08:00'
 draft = true
 title = '00：点亮LED（GPIO）'
 categories = ["stm32"]
-tags = ["GPIO", "easy"]
+tags = ["gpio", "beginner", "embassy"]
+series = ["STM32入门系列"]
 +++
 ---
 

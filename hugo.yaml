@@ -15,6 +15,13 @@ minify:
       keepWhitespace: false
 
 params:
+  # 导航栏配置 - 移除文字，只保留菜单
+  label:
+    text: ""  # 不显示文字
+    icon: ""  # 不显示图标
+    iconHeight: 0
+
+  description: "探索 Rust 嵌入式开发 | STM32 · ESP32 · RP2040 · PY32"
   author: linkyourbin
   keywords:
     - rust
@@ -33,7 +40,7 @@ params:
     - rust on mcu
     - embassy
   showReadingTime: false
-  defaultTheme: auto
+  defaultTheme: auto  # 允许主题切换
   displayFullLangName: true
   hideFooter: false
   hideVersion: false
@@ -50,31 +57,54 @@ params:
 
   mainSections:
     - mainpage
-    - stm32   
-    - esp32   
-    - rp      
+    - stm32
+    - esp32
+    - rp
     - py32
-    - miscellanea
     - toolchain
     - search
+    # 未来MCU平台预留:
+    # - ch32      # 沁恒CH32系列 (RISC-V)
+    # - nrf       # Nordic nRF系列 (BLE专用)
+    # - gd32      # 兆易创新GD32系列
+    # - hc32      # 华大HC32系列
+    # - apm32     # 极海APM32系列
+    # - at32      # 雅特力AT32系列
+
+  # 网站外观配置
   colorScheme: auto
-  favicon: favicon.ico
+  favicon: "favicon.svg"
+  favicon16x16: "favicon.svg"
+  favicon32x32: "favicon.svg"
+  apple_touch_icon: "profile/avatar.svg"
+  safari_pinned_tab: "favicon.svg"
+
   enableTwemoji: true
   enableEmojiPicker: true
   editPost:
     url: https://github.com/linkyourbin/
     text: error fix
 
-  
+
+  # 主页配置 - 头像+文字列表式设计
   profileMode:
     enabled: true
-    title: "linkyourbin"  
-    subtitle: "Be the change you want to see in the world."  
-    imageUrl: "profile/avatar.svg"  
-    imageWidth: 360
-    imageHeight: 360
+    imageUrl: "profile/avatar.svg"
+    imageWidth: 600
+    imageHeight: 600
+    imageTitle: "RUST MCU"
+    subtitle: "🦀 欢迎来到 Rust 嵌入式开发的世界！"
+    description: |
+      - **Rust MCU** 专注于 Rust 嵌入式开发，涵盖 STM32、ESP32、RP2040、PY32 等主流 MCU 平台
+      - 提供从入门到实战的完整教程，注重实用性
+      - 分享模块驱动开发、异步编程、PCB 设计、调试技巧等实战经验
+      - 基于 **Embassy** 异步框架和 **embedded-hal** 硬件抽象层构建现代化嵌入式应用
+      - 探索 Rust 在嵌入式领域的内存安全、零成本抽象和并发编程优势
+      - 记录学习过程中的踩坑经验，帮助开发者快速上手 Rust 嵌入式开发
+      - 提供完整的项目示例和代码模板，加速产品原型开发
+      - 涵盖从裸机编程到 RTOS、从简单 GPIO 到复杂通信协议的全栈内容
 
-  socialIcons:  
+  socialIcons:
     - name: github
       url: "https://github.com/linkyourbin"
     - name: bilibili
@@ -83,45 +113,66 @@ params:
 
 menu:
   main:
-    - name: Home
-      url: /categories/home
+    - name: 首页
+      url: /
       weight: 1
-      pre: "<i class='fa fa-home'></i>"
 
-    - name: Miscellanea
-      url: /categories/miscellanea/
+    - name: MCU平台
+      identifier: mcu
+      url: /mcu-platforms/
       weight: 2
-      pre: "<i class='fa fa-file-text'></i>"
 
     - name: STM32
-      url: /categories/stm32/
-      weight: 3
-      pre: "<i class='fa fa-microchip'></i>"
+      parent: mcu
+      url: /stm32/
+      weight: 21
 
     - name: ESP32
-      url: /categories/esp32/
-      weight: 4
-      pre: "<i class='fa fa-wifi'></i>"
+      parent: mcu
+      url: /esp32/
+      weight: 22
 
-    - name: RP
-      url: /categories/rp/
-      weight: 5
-      pre: "<i class='fa fa-raspberry-pi'></i>"
+    - name: RP2040/2350
+      parent: mcu
+      url: /rp/
+      weight: 23
 
     - name: PY32
-      url: /categories/py32/
+      parent: mcu
+      url: /py32/
+      weight: 24
+
+    # 未来MCU平台菜单项预留:
+    # - name: CH32
+    #   parent: mcu
+    #   url: /ch32/
+    #   weight: 25
+    #
+    # - name: nRF
+    #   parent: mcu
+    #   url: /nrf/
+    #   weight: 26
+    #
+    # - name: GD32
+    #   parent: mcu
+    #   url: /gd32/
+    #   weight: 27
+
+    - name: 开发工具
+      url: /toolchain/
+      weight: 3
+
+    - name: 归档
+      url: /archives/
+      weight: 4
+
+    - name: 关于
+      url: /about/
+      weight: 5
+
+    - name: 搜索
+      url: /search/
       weight: 6
-      pre: "<i class='fa py32'></i>"
-
-    - name: Toolchain
-      url: /categories/toolchain/
-      weight: 7
-      pre: "<i class='fa fa-file-text'></i>"
-
-    - name: Search
-      url: /categories/search/
-      weight: 8
-      pre: "<i class='fa fa-file-text'></i>"
 
       
 taxonomies:

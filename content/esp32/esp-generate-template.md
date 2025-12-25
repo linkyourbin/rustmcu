@@ -2,8 +2,9 @@
 date: '2025-08-18T15:38:56+08:00'
 draft: true
 title: '配置ESP32模板工程，此后的所有工程均可按此流程配置'
-categories : ["esp32"]  
-tags : ["esp32", "Template"]
+categories: ["esp32"]
+tags: ["esp32", "template", "esp-generate", "toolchain"]
+series: ["ESP32入门系列", "开发工具链"]
 ---
 # 使用`esp-generate`生成一个初始工程
 
