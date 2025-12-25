@@ -117,62 +117,21 @@ menu:
       url: /
       weight: 1
 
-    - name: MCU平台
-      identifier: mcu
-      url: /mcu-platforms/
-      weight: 2
-
-    - name: STM32
-      parent: mcu
-      url: /stm32/
-      weight: 21
-
-    - name: ESP32
-      parent: mcu
-      url: /esp32/
-      weight: 22
-
-    - name: RP2040/2350
-      parent: mcu
-      url: /rp/
-      weight: 23
-
-    - name: PY32
-      parent: mcu
-      url: /py32/
-      weight: 24
-
-    # 未来MCU平台菜单项预留:
-    # - name: CH32
-    #   parent: mcu
-    #   url: /ch32/
-    #   weight: 25
-    #
-    # - name: nRF
-    #   parent: mcu
-    #   url: /nrf/
-    #   weight: 26
-    #
-    # - name: GD32
-    #   parent: mcu
-    #   url: /gd32/
-    #   weight: 27
-
     - name: 开发工具
       url: /toolchain/
-      weight: 3
+      weight: 2
 
     - name: 归档
       url: /archives/
-      weight: 4
+      weight: 3
 
     - name: 关于
       url: /about/
-      weight: 5
+      weight: 4
 
     - name: 搜索
       url: /search/
-      weight: 6
+      weight: 5
 
       
 taxonomies:
