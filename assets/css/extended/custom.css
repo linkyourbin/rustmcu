@@ -49,28 +49,52 @@ header.header {
   box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
-/* 移动端滚动时隐藏页面标题，防止残留 */
+/* 修复移动端滚动时文章标题不被导航栏遮挡的问题 */
+.post-header,
+.page-header,
+.post-title,
+.entry-header,
+article header {
+  position: relative;
+  z-index: 1;
+}
+
+/* 确保主内容区域的 z-index 低于导航栏 */
+main.main,
+.main article,
+.post-content,
+.entry-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* 移动端特别处理 */
 @media screen and (max-width: 768px) {
+  /* 文章标题和页面标题必须在导航栏下方 */
   .post-header,
-  .page-header {
+  .page-header,
+  h1.post-title,
+  .entry-header h1,
+  article > header {
     position: relative;
-    z-index: 1;
+    z-index: 1 !important;
   }
 
-  /* 确保导航栏完全覆盖下方内容 */
+  /* 确保导航栏始终在最上层 */
   header.header {
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000 !important;
     background: var(--bg-secondary) !important;
   }
 
-  /* 为主内容添加足够的上边距 */
+  /* 主内容区域 */
   main.main {
-    padding-top: 0;
+    position: relative;
+    z-index: 1;
   }
 }
 
