@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Esp-Generate on RUST MCU BLOG</title><link>http://localhost:1313/tags/esp-generate/</link><description>Recent content in Esp-Generate on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Mon, 18 Aug 2025 15:38:56 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/esp-generate/index.xml" rel="self" type="application/rss+xml"/><item><title>配置ESP32模板工程，此后的所有工程均可按此流程配置</title><link>http://localhost:1313/esp32/esp-generate-template/</link><pubDate>Mon, 18 Aug 2025 15:38:56 +0800</pubDate><guid>http://localhost:1313/esp32/esp-generate-template/</guid><description>&lt;h1 id="使用esp-generate生成一个初始工程">使用&lt;code>esp-generate&lt;/code>生成一个初始工程&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Esp-Generate on RUST MCU BLOG</title><link>https://rustmcu.com/tags/esp-generate/</link><description>Recent content in Esp-Generate on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Mon, 18 Aug 2025 15:38:56 +0800</lastBuildDate><atom:link href="https://rustmcu.com/tags/esp-generate/index.xml" rel="self" type="application/rss+xml"/><item><title>配置ESP32模板工程，此后的所有工程均可按此流程配置</title><link>https://rustmcu.com/esp32/esp-generate-template/</link><pubDate>Mon, 18 Aug 2025 15:38:56 +0800</pubDate><guid>https://rustmcu.com/esp32/esp-generate-template/</guid><description>&lt;h1 id="使用esp-generate生成一个初始工程">使用&lt;code>esp-generate&lt;/code>生成一个初始工程&lt;/h1>
 &lt;blockquote>
-&lt;p>进行此实验前，务必先查看&lt;a href="http://localhost:1313/toolchain/stm32-dev-env-setup/" style="color: #e16054ff; font-weight: bold; font-style: italic;">基础环境搭建&lt;/a>，完成之后，继续完成&lt;a href="http://localhost:1313/toolchain/esp32-dev-setup/" style="color: #e16054ff; font-weight: bold; font-style: italic;">ESP32 Rust环境搭建&lt;/a>，&lt;/p>&lt;/blockquote>
+&lt;p>进行此实验前，务必先查看&lt;a href="https://rustmcu.com/toolchain/stm32-dev-env-setup/" style="color: #e16054ff; font-weight: bold; font-style: italic;">基础环境搭建&lt;/a>，完成之后，继续完成&lt;a href="https://rustmcu.com/toolchain/esp32-dev-setup/" style="color: #e16054ff; font-weight: bold; font-style: italic;">ESP32 Rust环境搭建&lt;/a>，&lt;/p>&lt;/blockquote>
 &lt;p>完成以上步骤之后，来到合适的文件目录下，最好是新建一个目录用于存放工程，在此目录下打开终端，输入以下命令，并按下回车（&lt;code>Enter&lt;/code>）。也可以先输入&lt;code>esp-generate&lt;/code>，按下回车（&lt;code>Enter&lt;/code>）之后，再根据提示一步一步选择。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -24,22 +24,22 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>此时，命令行会打开一个类似&lt;code>GUI&lt;/code>的界面，使用键盘上的“上下左右”箭头来选择相应的&lt;code>feature&lt;/code>，高亮部分即代表待选中的&lt;code>feature&lt;/code>，按下回车（&lt;code>Enter&lt;/code>）则会选中此项&lt;code>feature&lt;/code>，并且在此&lt;code>feature&lt;/code>前显示&lt;span style="color: green;">✅&lt;/span>&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/template-project/esp-generate-00.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/template-project/esp-generate-00.png">&lt;/p>
 &lt;p>&lt;code>feature&lt;/code>前带有&lt;span style="color: gray;">[▶]&lt;/span>符号，表示该&lt;code>feature&lt;/code>含有多个子&lt;code>feature&lt;/code>，使用箭头选中高亮，并且按下回车（&lt;code>Enter&lt;/code>）后，会打开新的界面。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/template-project/esp-generate-01.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/template-project/esp-generate-01.png">&lt;/p>
 &lt;p>此时，高亮区域选中了&lt;code>▶ Flashing, logging and debugging (espflash)&lt;/code>，按下回车（&lt;code>Enter&lt;/code>），来到新的界面。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/template-project/esp-generate-02.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/template-project/esp-generate-02.png">&lt;/p>
 &lt;p>选中下图的&lt;code>feature&lt;/code>，按照从上至下排序，当前选中了&lt;code>2&lt;/code>和&lt;code>3&lt;/code>。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/template-project/esp-generate-03.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/template-project/esp-generate-03.png">&lt;/p>
 &lt;p>注意：&lt;code>1&lt;/code>和&lt;code>2&lt;/code>只能二选一，工程里编写代码时也只能二选一，否则会报错。&lt;/p>
 &lt;p>完成选定后，按下&lt;code>ESC&lt;/code>，返回主界面，继续开启&lt;code>feature&lt;/code>。&lt;/p>
 &lt;p>此时，高亮区域选中了&lt;code>▶ Optional editor integration&lt;/code>，按下回车（&lt;code>Enter&lt;/code>），来到新的界面。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/template-project/esp-generate-04.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/template-project/esp-generate-04.png">&lt;/p>
 &lt;p>这个界面主要是选择你将要使用的编辑器，选定之后，可以自动配置工程适应编辑器，打开后不会报错，并且会推荐安装部分插件。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/template-project/esp-generate-05.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/template-project/esp-generate-05.png">&lt;/p>
 &lt;p>选定上图&lt;code>feature&lt;/code>后，继续按下&lt;code>ESC&lt;/code>，回到主界面。&lt;/p>
 &lt;p>此时，我们已经选定了所有&lt;code>feature&lt;/code>，按下&lt;code>S&lt;/code>即&lt;code>Save&lt;/code>，即可保存并且生成工程。终端里也会有提示信息。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/template-project/esp-generate-06.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/template-project/esp-generate-06.png">&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1

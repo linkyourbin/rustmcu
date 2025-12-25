@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Py32 on RUST MCU BLOG</title><link>http://localhost:1313/tags/py32/</link><description>Recent content in Py32 on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Sat, 04 Oct 2025 23:58:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/py32/index.xml" rel="self" type="application/rss+xml"/><item><title>PY32 驱动SSD1306 OLED显示屏</title><link>http://localhost:1313/py32/ssd1306/</link><pubDate>Sat, 04 Oct 2025 23:58:12 +0800</pubDate><guid>http://localhost:1313/py32/ssd1306/</guid><description>&lt;h1 id="先说点废话">先说点废话&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Py32 on RUST MCU BLOG</title><link>https://rustmcu.com/tags/py32/</link><description>Recent content in Py32 on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Sat, 04 Oct 2025 23:58:12 +0800</lastBuildDate><atom:link href="https://rustmcu.com/tags/py32/index.xml" rel="self" type="application/rss+xml"/><item><title>PY32 驱动SSD1306 OLED显示屏</title><link>https://rustmcu.com/py32/ssd1306/</link><pubDate>Sat, 04 Oct 2025 23:58:12 +0800</pubDate><guid>https://rustmcu.com/py32/ssd1306/</guid><description>&lt;h1 id="先说点废话">先说点废话&lt;/h1>
 &lt;p>这个系列是在意料之外的，起因是，很久之前在&lt;code>eeworld&lt;/code>论坛看了一场&lt;code>rust+py32&lt;/code>嵌入式直播，在直播过程中，提出了一些自己的疑惑，并且得到了较为满意的答疑。😊&lt;/p>
 &lt;p>事后就再没关注过了，直到前几天，论坛的管理员通过预留的个人信息添加了我的微信，并且说明，我中奖了，奖品是一块&lt;code>py32f030k28t6&lt;/code> &lt;code>rust&lt;/code>开发板。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/gift_from_live.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/gift_from_live.png">&lt;/p>
 &lt;p>板子大概就长这个样子。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/board_overview.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/board_overview.png">&lt;/p>
 &lt;p>到手之后，是这样的。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/raw_01.jpg">
-&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/raw_02.jpg">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/raw_01.jpg">
+&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/raw_02.jpg">&lt;/p>
 &lt;p>焊接好了。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/soldering_done.jpg">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/soldering_done.jpg">&lt;/p>
 &lt;p>既然都焊接好了，那就继续写（CV）点代码试一试吧！&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/memes/good-00.jpg">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/memes/good-00.jpg">&lt;/p>
 &lt;hr>
 &lt;h1 id="前言">前言&lt;/h1>
 &lt;p>查阅资料可知，&lt;code>py32f030k28t6&lt;/code>的硬件资源大概如下：&lt;/p>
@@ -32,22 +32,22 @@
 &lt;p>从x宝搜索可知，这款芯片不到1￥，如此对比的话，某些x1单片机的性价比就不值一提了。&lt;/p>
 &lt;p>废话不多说，搞点代码，添加一点灵魂！！！&lt;/p>
 &lt;p>你知道我的，肯定不可能从&lt;code>svd2rust&lt;/code>开始写，肯定是先去最大的同性交友网站看看喽。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/memes/greeting-00.gif">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/memes/greeting-00.gif">&lt;/p>
 &lt;p>&lt;code>Github&lt;/code>，启动！&lt;/p>
 &lt;p>很容易就找到了！！！&lt;/p>
 &lt;p>二次元头像，中文头像！！！我去，全是大佬！！！&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/github_repo_01.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/github_repo_01.png">&lt;/p>
 &lt;p>读一读&lt;code>README&lt;/code>，不错不错，完成度很高！&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/github_repo_02.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/github_repo_02.png">&lt;/p>
 &lt;p>那还说啥了，&lt;code>CV&lt;/code>，启动！&lt;/p>
 &lt;h1 id="cv启动">CV，启动！&lt;/h1>
 &lt;p>经过一番简单的适配后，建立好了工程。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/project_done.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/project_done.png">&lt;/p>
 &lt;p>先用&lt;code>ST-Link&lt;/code>试试。&lt;/p>
 &lt;p>cargo run!!!!!!!!!&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/falsh_ok.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/falsh_ok.png">&lt;/p>
 &lt;p>终端信息正常，看看屏幕呢。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/bingo_done.jpg">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/bingo_done.jpg">&lt;/p>
 &lt;p>正常显示出代码预设的内容。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">

@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Embassy on RUST MCU BLOG</title><link>http://localhost:1313/tags/embassy/</link><description>Recent content in Embassy on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Mon, 18 Aug 2025 14:38:28 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/embassy/index.xml" rel="self" type="application/rss+xml"/><item><title>ESP32C3读取DHT11温湿度信息</title><link>http://localhost:1313/esp32/esp32c3_dht11/</link><pubDate>Mon, 18 Aug 2025 14:38:28 +0800</pubDate><guid>http://localhost:1313/esp32/esp32c3_dht11/</guid><description>&lt;h1 id="前言和实验结果">前言和实验结果&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Embassy on RUST MCU BLOG</title><link>https://rustmcu.com/tags/embassy/</link><description>Recent content in Embassy on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Mon, 18 Aug 2025 14:38:28 +0800</lastBuildDate><atom:link href="https://rustmcu.com/tags/embassy/index.xml" rel="self" type="application/rss+xml"/><item><title>ESP32C3读取DHT11温湿度信息</title><link>https://rustmcu.com/esp32/esp32c3_dht11/</link><pubDate>Mon, 18 Aug 2025 14:38:28 +0800</pubDate><guid>https://rustmcu.com/esp32/esp32c3_dht11/</guid><description>&lt;h1 id="前言和实验结果">前言和实验结果&lt;/h1>
 &lt;blockquote>
 &lt;p>跳过&lt;code>Hello World&lt;/code>，即点亮&lt;code>LED&lt;/code>，直接实战读取&lt;code>DHT11&lt;/code>温湿度传感器。&lt;/p>&lt;/blockquote>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/memes/exhausted.jpg">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/memes/exhausted.jpg">&lt;/p>
 &lt;p>最后实现的效果如下。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/esp32c3/dht11/dht11-measuring-result.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/esp32c3/dht11/dht11-measuring-result.png">&lt;/p>
 &lt;blockquote>
 &lt;p>如上图，可以在终端&lt;code>Terminal&lt;/code>里直接看到&lt;code>DHT11&lt;/code>测量到的温湿度信息，无需额外的串口。终端里也支持中文信息输出，感兴趣可以自己上手实测。&lt;/p>&lt;/blockquote>
 &lt;h1 id="使用esp-generate生成模板工程">使用&lt;code>esp-generate&lt;/code>生成模板工程&lt;/h1>
 &lt;blockquote>
-&lt;p>由于过程具有重复性，故不再重复演示，请点击跳转&lt;a href="http://localhost:1313/esp32/esp-generate-template/" style="color: #e16054ff; font-weight: bold; font-style: italic;">使用esp-generate生成一个ESP32初始工程&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>由于过程具有重复性，故不再重复演示，请点击跳转&lt;a href="https://rustmcu.com/esp32/esp-generate-template/" style="color: #e16054ff; font-weight: bold; font-style: italic;">使用esp-generate生成一个ESP32初始工程&lt;/a>&lt;/p>&lt;/blockquote>
 &lt;h1 id="打开工程">打开工程&lt;/h1>
 &lt;ul>
 &lt;li>导入需要用到的&lt;code>crate&lt;/code>，在工程根目录下打开终端，输入以下命令，并按下回车（&lt;code>Enter&lt;/code>）&lt;/li>
@@ -73,8 +73,8 @@
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>
-&lt;p>断电前提下，连接硬件&lt;/p></description></item><item><title>Blinky - LED闪烁</title><link>http://localhost:1313/rp/blinky/</link><pubDate>Thu, 14 Aug 2025 19:00:25 +0800</pubDate><guid>http://localhost:1313/rp/blinky/</guid><description>&lt;hr></description></item><item><title>00：点亮LED（GPIO）</title><link>http://localhost:1313/stm32/blinky/</link><pubDate>Thu, 14 Aug 2025 18:39:34 +0800</pubDate><guid>http://localhost:1313/stm32/blinky/</guid><description>&lt;hr>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/memes/exhausted.jpg">&lt;/p>
+&lt;p>断电前提下，连接硬件&lt;/p></description></item><item><title>Blinky - LED闪烁</title><link>https://rustmcu.com/rp/blinky/</link><pubDate>Thu, 14 Aug 2025 19:00:25 +0800</pubDate><guid>https://rustmcu.com/rp/blinky/</guid><description>&lt;hr></description></item><item><title>00：点亮LED（GPIO）</title><link>https://rustmcu.com/stm32/blinky/</link><pubDate>Thu, 14 Aug 2025 18:39:34 +0800</pubDate><guid>https://rustmcu.com/stm32/blinky/</guid><description>&lt;hr>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/memes/exhausted.jpg">&lt;/p>
 &lt;h1 id="硬件准备">硬件准备&lt;/h1>
 &lt;ul>
 &lt;li>&lt;code>STM32&lt;/code>开发板*1&lt;/li>
@@ -140,12 +140,12 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>注意：工程名最好是&lt;code>snake_case&lt;/code>。
-&lt;img loading="lazy" src="http://localhost:1313/stm32/01-blinky/00_new_project.png">&lt;/p>
+&lt;img loading="lazy" src="https://rustmcu.com/stm32/01-blinky/00_new_project.png">&lt;/p>
 &lt;ol start="2">
 &lt;li>使用&lt;code>vscode&lt;/code>打开所创建的工程&lt;/li>
 &lt;/ol>
 &lt;p>工程目录如下图所示，标准的&lt;code>hello world&lt;/code>工程。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="http://localhost:1313/stm32/01-blinky/01_open_project.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/stm32/01-blinky/01_open_project.png">&lt;/p>
 &lt;h2 id="移植embassy">移植&lt;code>embassy&lt;/code>&lt;/h2>
 &lt;p>参考&lt;code>embassy&lt;/code>仓库的工程进行工程移植，点击跳转&lt;a href="https://github.com/embassy-rs/embassy/tree/main/examples/stm32f4">&lt;code>embassy stm32f4 examples&lt;/code>&lt;/a>&lt;/p>
 &lt;p>在自己的工程根目录里创建两个目录，并且新建文件&lt;/p>
@@ -160,7 +160,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>将以下图中内容，复制到&lt;code>.cargo/config.toml&lt;/code>里
-&lt;img loading="lazy" src="http://localhost:1313/stm32/01-blinky/02_embassy_config.png">&lt;/p>
+&lt;img loading="lazy" src="https://rustmcu.com/stm32/01-blinky/02_embassy_config.png">&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
