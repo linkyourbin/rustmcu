@@ -24,13 +24,13 @@ jobs:
               extended: true
 
         - name: Build Web
-          run: hugo --minify --baseURL https://rustmcu.com/
+          run: hugo --minify --buildDrafts --baseURL https://rustmcu.com/
 
         - name: Deploy Web
           uses: peaceiris/actions-gh-pages@v4
           with:
-              PERSONAL_TOKEN: ${{ secrets.rustmcu }}
-              EXTERNAL_REPOSITORY: linkyourbin/rustmcu
-              PUBLISH_BRANCH: master
-              PUBLISH_DIR: ./public
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              publish_dir: ./public
+              publish_branch: gh-pages
+              force_orphan: true
               commit_message: auto deploy

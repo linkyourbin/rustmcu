@@ -6,7 +6,7 @@ theme: PaperMod
 build:
   useResourceCacheWhen: always
   writeStats: true
-  buildDrafts: true
+  buildDrafts: false
 
 minify:
   minifyOutput: true
