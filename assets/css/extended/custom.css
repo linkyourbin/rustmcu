@@ -1188,3 +1188,53 @@ header input {
 header input:focus {
   caret-color: auto;
 }
+
+/* ===== 移动端搜索栏滚动修复 ===== */
+@media screen and (max-width: 768px) {
+  /* 修复移动端搜索栏无法滚动的问题 */
+  #searchResults {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    max-height: calc(100vh - 200px);
+  }
+
+  /* 确保搜索容器可以滚动 */
+  .search-container {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 搜索结果列表样式优化 */
+  #searchResults li {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+  }
+}
+
+/* ===== 主页头像放大一倍 ===== */
+.profile .profile_inner img {
+  width: 240px !important;
+  height: 240px !important;
+}
+
+/* 响应式调整 - 移动端头像 */
+@media screen and (max-width: 1024px) {
+  .profile .profile_inner img {
+    width: 200px !important;
+    height: 200px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile .profile_inner img {
+    width: 180px !important;
+    height: 180px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile .profile_inner img {
+    width: 150px !important;
+    height: 150px !important;
+  }
+}
