@@ -1,132 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>RUST MCU BLOG</title><link>https://rustmcu.com/</link><description>Recent content on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Thu, 25 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://rustmcu.com/index.xml" rel="self" type="application/rss+xml"/><item><title>MCU 平台</title><link>https://rustmcu.com/mcu-platforms/</link><pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate><guid>https://rustmcu.com/mcu-platforms/</guid><description>&lt;style>
-.mcu-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 24px;
-margin: 32px 0;
-}
-.mcu-card {
-background: var(--entry);
-border: 1px solid var(--border);
-border-radius: 12px;
-padding: 24px;
-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-cursor: pointer;
-position: relative;
-overflow: hidden;
-}
-.mcu-card::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 4px;
-background: linear-gradient(90deg, #CE422B, #ff6b4a);
-transform: scaleX(0);
-transform-origin: left;
-transition: transform 0.3s ease;
-}
-.mcu-card:hover::before {
-transform: scaleX(1);
-}
-.mcu-card:hover {
-transform: translateY(-8px);
-box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-border-color: #CE422B;
-}
-.mcu-icon {
-font-size: 48px;
-margin-bottom: 16px;
-display: block;
-transition: transform 0.3s ease;
-}
-.mcu-card:hover .mcu-icon {
-transform: scale(1.1) rotate(5deg);
-}
-.mcu-title {
-font-size: 24px;
-font-weight: 600;
-margin-bottom: 8px;
-color: var(--content);
-}
-.mcu-subtitle {
-font-size: 14px;
-color: var(--secondary);
-margin-bottom: 12px;
-}
-.mcu-desc {
-font-size: 14px;
-line-height: 1.6;
-color: var(--content);
-margin-bottom: 16px;
-}
-.mcu-tags {
-display: flex;
-flex-wrap: wrap;
-gap: 8px;
-margin-top: 16px;
-}
-.mcu-tag {
-font-size: 12px;
-padding: 4px 12px;
-background: rgba(206, 66, 43, 0.1);
-color: #CE422B;
-border-radius: 12px;
-transition: all 0.2s ease;
-}
-.mcu-card:hover .mcu-tag {
-background: #CE422B;
-color: white;
-}
-.intro-section {
-text-align: center;
-padding: 48px 0 32px;
-animation: fadeIn 0.6s ease-out;
-}
-@keyframes fadeIn {
-from {
-opacity: 0;
-transform: translateY(20px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
-.intro-title {
-font-size: 36px;
-font-weight: 700;
-margin-bottom: 16px;
-background: linear-gradient(135deg, #CE422B, #ff6b4a);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-}
-.intro-subtitle {
-font-size: 18px;
-color: var(--secondary);
-max-width: 600px;
-margin: 0 auto;
-line-height: 1.8;
-}
-@media (max-width: 768px) {
-.mcu-grid {
-grid-template-columns: 1fr;
-}
-.intro-title {
-font-size: 28px;
-}
-.intro-subtitle {
-font-size: 16px;
-}
-}
-&lt;/style>
-&lt;div class="intro-section">
-&lt;h1 class="intro-title">🦀 支持的 MCU 平台&lt;/h1>
-&lt;p class="intro-subtitle">
-跨平台 Rust 嵌入式开发，从入门到实战
-&lt;/p></description></item><item><title>关于</title><link>https://rustmcu.com/about/</link><pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate><guid>https://rustmcu.com/about/</guid><description>&lt;h2 id="技术栈">技术栈&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>RUST MCU BLOG</title><link>http://localhost:1313/</link><description>Recent content on RUST MCU BLOG</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Thu, 25 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml"/><item><title>关于</title><link>http://localhost:1313/about/</link><pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/about/</guid><description>&lt;h2 id="技术栈">技术栈&lt;/h2>
 &lt;h3 id="编程语言">编程语言&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -242,19 +114,19 @@ font-size: 16px;
 &lt;td>在线 PCB 设计&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description></item><item><title>PY32 驱动SSD1306 OLED显示屏</title><link>https://rustmcu.com/py32/ssd1306/</link><pubDate>Sat, 04 Oct 2025 23:58:12 +0800</pubDate><guid>https://rustmcu.com/py32/ssd1306/</guid><description>&lt;h1 id="先说点废话">先说点废话&lt;/h1>
+&lt;/table></description></item><item><title>PY32 驱动SSD1306 OLED显示屏</title><link>http://localhost:1313/py32/ssd1306/</link><pubDate>Sat, 04 Oct 2025 23:58:12 +0800</pubDate><guid>http://localhost:1313/py32/ssd1306/</guid><description>&lt;h1 id="先说点废话">先说点废话&lt;/h1>
 &lt;p>这个系列是在意料之外的，起因是，很久之前在&lt;code>eeworld&lt;/code>论坛看了一场&lt;code>rust+py32&lt;/code>嵌入式直播，在直播过程中，提出了一些自己的疑惑，并且得到了较为满意的答疑。😊&lt;/p>
 &lt;p>事后就再没关注过了，直到前几天，论坛的管理员通过预留的个人信息添加了我的微信，并且说明，我中奖了，奖品是一块&lt;code>py32f030k28t6&lt;/code> &lt;code>rust&lt;/code>开发板。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/gift_from_live.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/gift_from_live.png">&lt;/p>
 &lt;p>板子大概就长这个样子。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/board_overview.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/board_overview.png">&lt;/p>
 &lt;p>到手之后，是这样的。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/raw_01.jpg">
-&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/raw_02.jpg">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/raw_01.jpg">
+&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/raw_02.jpg">&lt;/p>
 &lt;p>焊接好了。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/soldering_done.jpg">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/soldering_done.jpg">&lt;/p>
 &lt;p>既然都焊接好了，那就继续写（CV）点代码试一试吧！&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/memes/good-00.jpg">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/memes/good-00.jpg">&lt;/p>
 &lt;hr>
 &lt;h1 id="前言">前言&lt;/h1>
 &lt;p>查阅资料可知，&lt;code>py32f030k28t6&lt;/code>的硬件资源大概如下：&lt;/p>
@@ -276,22 +148,22 @@ font-size: 16px;
 &lt;p>从x宝搜索可知，这款芯片不到1￥，如此对比的话，某些x1单片机的性价比就不值一提了。&lt;/p>
 &lt;p>废话不多说，搞点代码，添加一点灵魂！！！&lt;/p>
 &lt;p>你知道我的，肯定不可能从&lt;code>svd2rust&lt;/code>开始写，肯定是先去最大的同性交友网站看看喽。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/memes/greeting-00.gif">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/memes/greeting-00.gif">&lt;/p>
 &lt;p>&lt;code>Github&lt;/code>，启动！&lt;/p>
 &lt;p>很容易就找到了！！！&lt;/p>
 &lt;p>二次元头像，中文头像！！！我去，全是大佬！！！&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/github_repo_01.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/github_repo_01.png">&lt;/p>
 &lt;p>读一读&lt;code>README&lt;/code>，不错不错，完成度很高！&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/github_repo_02.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/github_repo_02.png">&lt;/p>
 &lt;p>那还说啥了，&lt;code>CV&lt;/code>，启动！&lt;/p>
 &lt;h1 id="cv启动">CV，启动！&lt;/h1>
 &lt;p>经过一番简单的适配后，建立好了工程。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/project_done.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/project_done.png">&lt;/p>
 &lt;p>先用&lt;code>ST-Link&lt;/code>试试。&lt;/p>
 &lt;p>cargo run!!!!!!!!!&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/falsh_ok.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/falsh_ok.png">&lt;/p>
 &lt;p>终端信息正常，看看屏幕呢。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/py32/ssd1306/imgs/bingo_done.jpg">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/py32/ssd1306/imgs/bingo_done.jpg">&lt;/p>
 &lt;p>正常显示出代码预设的内容。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -337,9 +209,9 @@ font-size: 16px;
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">display&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">flush&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="n">unwrap&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>至此，又在一款国产芯片上，使用&lt;code>rust&lt;/code>点亮了屏幕。&lt;/p></description></item><item><title>配置ESP32模板工程，此后的所有工程均可按此流程配置</title><link>https://rustmcu.com/esp32/esp-generate-template/</link><pubDate>Mon, 18 Aug 2025 15:38:56 +0800</pubDate><guid>https://rustmcu.com/esp32/esp-generate-template/</guid><description>&lt;h1 id="使用esp-generate生成一个初始工程">使用&lt;code>esp-generate&lt;/code>生成一个初始工程&lt;/h1>
+&lt;/div>&lt;p>至此，又在一款国产芯片上，使用&lt;code>rust&lt;/code>点亮了屏幕。&lt;/p></description></item><item><title>配置ESP32模板工程，此后的所有工程均可按此流程配置</title><link>http://localhost:1313/esp32/esp-generate-template/</link><pubDate>Mon, 18 Aug 2025 15:38:56 +0800</pubDate><guid>http://localhost:1313/esp32/esp-generate-template/</guid><description>&lt;h1 id="使用esp-generate生成一个初始工程">使用&lt;code>esp-generate&lt;/code>生成一个初始工程&lt;/h1>
 &lt;blockquote>
-&lt;p>进行此实验前，务必先查看&lt;a href="https://rustmcu.com/toolchain/stm32-dev-env-setup/" style="color: #e16054ff; font-weight: bold; font-style: italic;">基础环境搭建&lt;/a>，完成之后，继续完成&lt;a href="https://rustmcu.com/toolchain/esp32-dev-setup/" style="color: #e16054ff; font-weight: bold; font-style: italic;">ESP32 Rust环境搭建&lt;/a>，&lt;/p>&lt;/blockquote>
+&lt;p>进行此实验前，务必先查看&lt;a href="http://localhost:1313/toolchain/stm32-dev-env-setup/" style="color: #e16054ff; font-weight: bold; font-style: italic;">基础环境搭建&lt;/a>，完成之后，继续完成&lt;a href="http://localhost:1313/toolchain/esp32-dev-setup/" style="color: #e16054ff; font-weight: bold; font-style: italic;">ESP32 Rust环境搭建&lt;/a>，&lt;/p>&lt;/blockquote>
 &lt;p>完成以上步骤之后，来到合适的文件目录下，最好是新建一个目录用于存放工程，在此目录下打开终端，输入以下命令，并按下回车（&lt;code>Enter&lt;/code>）。也可以先输入&lt;code>esp-generate&lt;/code>，按下回车（&lt;code>Enter&lt;/code>）之后，再根据提示一步一步选择。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -363,22 +235,22 @@ font-size: 16px;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>此时，命令行会打开一个类似&lt;code>GUI&lt;/code>的界面，使用键盘上的“上下左右”箭头来选择相应的&lt;code>feature&lt;/code>，高亮部分即代表待选中的&lt;code>feature&lt;/code>，按下回车（&lt;code>Enter&lt;/code>）则会选中此项&lt;code>feature&lt;/code>，并且在此&lt;code>feature&lt;/code>前显示&lt;span style="color: green;">✅&lt;/span>&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/template-project/esp-generate-00.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/template-project/esp-generate-00.png">&lt;/p>
 &lt;p>&lt;code>feature&lt;/code>前带有&lt;span style="color: gray;">[▶]&lt;/span>符号，表示该&lt;code>feature&lt;/code>含有多个子&lt;code>feature&lt;/code>，使用箭头选中高亮，并且按下回车（&lt;code>Enter&lt;/code>）后，会打开新的界面。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/template-project/esp-generate-01.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/template-project/esp-generate-01.png">&lt;/p>
 &lt;p>此时，高亮区域选中了&lt;code>▶ Flashing, logging and debugging (espflash)&lt;/code>，按下回车（&lt;code>Enter&lt;/code>），来到新的界面。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/template-project/esp-generate-02.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/template-project/esp-generate-02.png">&lt;/p>
 &lt;p>选中下图的&lt;code>feature&lt;/code>，按照从上至下排序，当前选中了&lt;code>2&lt;/code>和&lt;code>3&lt;/code>。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/template-project/esp-generate-03.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/template-project/esp-generate-03.png">&lt;/p>
 &lt;p>注意：&lt;code>1&lt;/code>和&lt;code>2&lt;/code>只能二选一，工程里编写代码时也只能二选一，否则会报错。&lt;/p>
 &lt;p>完成选定后，按下&lt;code>ESC&lt;/code>，返回主界面，继续开启&lt;code>feature&lt;/code>。&lt;/p>
 &lt;p>此时，高亮区域选中了&lt;code>▶ Optional editor integration&lt;/code>，按下回车（&lt;code>Enter&lt;/code>），来到新的界面。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/template-project/esp-generate-04.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/template-project/esp-generate-04.png">&lt;/p>
 &lt;p>这个界面主要是选择你将要使用的编辑器，选定之后，可以自动配置工程适应编辑器，打开后不会报错，并且会推荐安装部分插件。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/template-project/esp-generate-05.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/template-project/esp-generate-05.png">&lt;/p>
 &lt;p>选定上图&lt;code>feature&lt;/code>后，继续按下&lt;code>ESC&lt;/code>，回到主界面。&lt;/p>
 &lt;p>此时，我们已经选定了所有&lt;code>feature&lt;/code>，按下&lt;code>S&lt;/code>即&lt;code>Save&lt;/code>，即可保存并且生成工程。终端里也会有提示信息。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/template-project/esp-generate-06.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/template-project/esp-generate-06.png">&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -391,17 +263,17 @@ font-size: 16px;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">🆗 probe-rs: 0.29.1
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>至此，创建工程模板就已经完成了，之后所有的工程模板都是一样的操作流程，不同时期配置的工具链，以上工具版本信息不一致是正常现象。&lt;/p></description></item><item><title>ESP32C3读取DHT11温湿度信息</title><link>https://rustmcu.com/esp32/esp32c3_dht11/</link><pubDate>Mon, 18 Aug 2025 14:38:28 +0800</pubDate><guid>https://rustmcu.com/esp32/esp32c3_dht11/</guid><description>&lt;h1 id="前言和实验结果">前言和实验结果&lt;/h1>
+&lt;/div>&lt;p>至此，创建工程模板就已经完成了，之后所有的工程模板都是一样的操作流程，不同时期配置的工具链，以上工具版本信息不一致是正常现象。&lt;/p></description></item><item><title>ESP32C3读取DHT11温湿度信息</title><link>http://localhost:1313/esp32/esp32c3_dht11/</link><pubDate>Mon, 18 Aug 2025 14:38:28 +0800</pubDate><guid>http://localhost:1313/esp32/esp32c3_dht11/</guid><description>&lt;h1 id="前言和实验结果">前言和实验结果&lt;/h1>
 &lt;blockquote>
 &lt;p>跳过&lt;code>Hello World&lt;/code>，即点亮&lt;code>LED&lt;/code>，直接实战读取&lt;code>DHT11&lt;/code>温湿度传感器。&lt;/p>&lt;/blockquote>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/memes/exhausted.jpg">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/memes/exhausted.jpg">&lt;/p>
 &lt;p>最后实现的效果如下。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/esp32/esp32c3/dht11/dht11-measuring-result.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/esp32/esp32c3/dht11/dht11-measuring-result.png">&lt;/p>
 &lt;blockquote>
 &lt;p>如上图，可以在终端&lt;code>Terminal&lt;/code>里直接看到&lt;code>DHT11&lt;/code>测量到的温湿度信息，无需额外的串口。终端里也支持中文信息输出，感兴趣可以自己上手实测。&lt;/p>&lt;/blockquote>
 &lt;h1 id="使用esp-generate生成模板工程">使用&lt;code>esp-generate&lt;/code>生成模板工程&lt;/h1>
 &lt;blockquote>
-&lt;p>由于过程具有重复性，故不再重复演示，请点击跳转&lt;a href="https://rustmcu.com/esp32/esp-generate-template/" style="color: #e16054ff; font-weight: bold; font-style: italic;">使用esp-generate生成一个ESP32初始工程&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>由于过程具有重复性，故不再重复演示，请点击跳转&lt;a href="http://localhost:1313/esp32/esp-generate-template/" style="color: #e16054ff; font-weight: bold; font-style: italic;">使用esp-generate生成一个ESP32初始工程&lt;/a>&lt;/p>&lt;/blockquote>
 &lt;h1 id="打开工程">打开工程&lt;/h1>
 &lt;ul>
 &lt;li>导入需要用到的&lt;code>crate&lt;/code>，在工程根目录下打开终端，输入以下命令，并按下回车（&lt;code>Enter&lt;/code>）&lt;/li>
@@ -466,7 +338,7 @@ font-size: 16px;
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>
-&lt;p>断电前提下，连接硬件&lt;/p></description></item><item><title>一分钟，搭建Rust RP 2040/2350 Pico(2)开发环境</title><link>https://rustmcu.com/toolchain/rpx-picox-dev-setup/</link><pubDate>Sun, 17 Aug 2025 14:14:23 +0800</pubDate><guid>https://rustmcu.com/toolchain/rpx-picox-dev-setup/</guid><description>&lt;p>由于已经在&lt;code>五分钟，带你从安装STM32 Rust嵌入式开发环境，到脱离苦海&lt;/code>这篇博客里详细展示了如何搭建&lt;code>基座环境&lt;/code>，故本篇博客，不会从头开始，只需要安装对应的&lt;code>target&lt;/code>即可。&lt;/p>
+&lt;p>断电前提下，连接硬件&lt;/p></description></item><item><title>一分钟，搭建Rust RP 2040/2350 Pico(2)开发环境</title><link>http://localhost:1313/toolchain/rpx-picox-dev-setup/</link><pubDate>Sun, 17 Aug 2025 14:14:23 +0800</pubDate><guid>http://localhost:1313/toolchain/rpx-picox-dev-setup/</guid><description>&lt;p>由于已经在&lt;code>五分钟，带你从安装STM32 Rust嵌入式开发环境，到脱离苦海&lt;/code>这篇博客里详细展示了如何搭建&lt;code>基座环境&lt;/code>，故本篇博客，不会从头开始，只需要安装对应的&lt;code>target&lt;/code>即可。&lt;/p>
 &lt;p>查阅官网资料得知：&lt;/p>
 &lt;p>&lt;code>RP 2040 Pico&lt;/code>部分重要信息如下&lt;/p>
 &lt;ul>
@@ -494,7 +366,7 @@ font-size: 16px;
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rustup target add thumbv8m.main-none-eabihf
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>之后更新的教程，会侧重使用&lt;code>RP 2350 Pico2&lt;/code>进行演示。&lt;/p></description></item><item><title>一分钟，搭建ESP32 Rust开发环境</title><link>https://rustmcu.com/toolchain/esp32-dev-setup/</link><pubDate>Sun, 17 Aug 2025 13:49:27 +0800</pubDate><guid>https://rustmcu.com/toolchain/esp32-dev-setup/</guid><description>&lt;h1 id="注意">注意&lt;/h1>
+&lt;/div>&lt;p>之后更新的教程，会侧重使用&lt;code>RP 2350 Pico2&lt;/code>进行演示。&lt;/p></description></item><item><title>一分钟，搭建ESP32 Rust开发环境</title><link>http://localhost:1313/toolchain/esp32-dev-setup/</link><pubDate>Sun, 17 Aug 2025 13:49:27 +0800</pubDate><guid>http://localhost:1313/toolchain/esp32-dev-setup/</guid><description>&lt;h1 id="注意">注意&lt;/h1>
 &lt;p>由于一部分工具链可以复用，理解为将之前的开发环境作为基座，所以不再要求从头开始单独配置&lt;code>ESP32&lt;/code>的开发环境，请先阅读完&lt;code>五分钟，带你从安装STM32 Rust嵌入式开发环境，到脱离苦海&lt;/code>这篇博客，再继续接下来的操作。&lt;/p>
 &lt;hr>
 &lt;h1 id="按照顺序执行以下命令">按照顺序，执行以下命令&lt;/h1>
@@ -521,23 +393,23 @@ font-size: 16px;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cargo install espflash
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="完成以上步骤之后esp32的开发环境就搭建完毕了恭喜你的技术栈又丰富了许多">完成以上步骤之后，&lt;code>ESP32&lt;/code>的开发环境就搭建完毕了。恭喜，你的技术栈又丰富了许多。&lt;/h2></description></item><item><title>五分钟，搭建Rust嵌入式开发环境</title><link>https://rustmcu.com/toolchain/stm32-dev-env-setup/</link><pubDate>Fri, 15 Aug 2025 20:53:18 +0800</pubDate><guid>https://rustmcu.com/toolchain/stm32-dev-env-setup/</guid><description>&lt;p>本篇博客搭建了一个&lt;code>Rust&lt;/code>嵌入式开发的基础环境，不同的芯片，只需要在此基础上安装对应的&lt;code>toolchain&lt;/code>和&lt;code>target&lt;/code>即可，由于是&lt;code>Windows&lt;/code>环境，为了最完美的兼容和适配，我们选择&lt;code>MSVC&lt;/code>而不是&lt;code>GNU&lt;/code>，这是长期实践下来比较完美的方案，若你是新手，无脑照抄即可。&lt;/p>
+&lt;/div>&lt;h2 id="完成以上步骤之后esp32的开发环境就搭建完毕了恭喜你的技术栈又丰富了许多">完成以上步骤之后，&lt;code>ESP32&lt;/code>的开发环境就搭建完毕了。恭喜，你的技术栈又丰富了许多。&lt;/h2></description></item><item><title>五分钟，搭建Rust嵌入式开发环境</title><link>http://localhost:1313/toolchain/stm32-dev-env-setup/</link><pubDate>Fri, 15 Aug 2025 20:53:18 +0800</pubDate><guid>http://localhost:1313/toolchain/stm32-dev-env-setup/</guid><description>&lt;p>本篇博客搭建了一个&lt;code>Rust&lt;/code>嵌入式开发的基础环境，不同的芯片，只需要在此基础上安装对应的&lt;code>toolchain&lt;/code>和&lt;code>target&lt;/code>即可，由于是&lt;code>Windows&lt;/code>环境，为了最完美的兼容和适配，我们选择&lt;code>MSVC&lt;/code>而不是&lt;code>GNU&lt;/code>，这是长期实践下来比较完美的方案，若你是新手，无脑照抄即可。&lt;/p>
 &lt;h1 id="安装rust">安装&lt;code>Rust&lt;/code>&lt;/h1>
 &lt;p>若使用国内的网络直连，安装&lt;code>Rust&lt;/code>时可能会耗费大量时间在下载环节，所以先配置一下代理（合理合法，免费使用）。&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>浏览器搜索并打开&lt;a href="rsproxy.cn">&lt;code>rsproxy.cn&lt;/code>&lt;/a>，可以看到其主页介绍的用法是&lt;code>Linux&lt;/code>/&lt;code>MAC&lt;/code>系统下的常用方式，我们侧重介绍如何在&lt;code>Windows&lt;/code>系统下配置，&lt;code>Windows 10&lt;/code>/&lt;code>Windows 11&lt;/code>均可。
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rsproxy_main_page.png">&lt;/p>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rsproxy_main_page.png">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>按下键盘上的&lt;code>Win&lt;/code>键，输入&lt;code>edit environment variables for your account&lt;/code>/&lt;code>环境变量&lt;/code>，打开环境变量编辑页面。
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/env_variable_overview.png">
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/env_variable_overview.png">
 图上是已经配置好的效果，具体操作方法如下&lt;/p>
 &lt;ul>
 &lt;li>点击&lt;code>Edit&lt;/code>/&lt;code>编辑&lt;/code>，将&lt;code>RUSTUP_DIST_SERVER&lt;/code>和&lt;code>https://rsproxy.cn&lt;/code>，依次填入相应位置
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rsproxy_server.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rsproxy_server.png">&lt;/li>
 &lt;li>如法炮制，再将&lt;code>RUSTUP_UPDATE_ROOT&lt;/code>和&lt;code>https://rsproxy.cn/rustup&lt;/code>填入相应位置
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rsproxy_updateroot.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rsproxy_updateroot.png">&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>
@@ -545,49 +417,49 @@ font-size: 16px;
 &lt;ul>
 &lt;li>&lt;a href="https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe">&lt;code>Rust Installer&lt;/code>&lt;/a>，点击直接下载&lt;/li>
 &lt;li>下载完成后，双击打开即可
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_00.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_00.png">&lt;/li>
 &lt;li>输入&lt;code>1&lt;/code>，按下回车（&lt;code>Enter&lt;/code>），之后的弹窗继续点击&lt;code>Yes&lt;/code>&lt;/li>
 &lt;li>继续点击&lt;code>Continue&lt;/code>
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_01.png">
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_02.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_01.png">
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_02.png">&lt;/li>
 &lt;li>点击&lt;code>Install&lt;/code>
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_03.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_03.png">&lt;/li>
 &lt;li>等待进度条跑完
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_04.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_04.png">&lt;/li>
 &lt;li>完成
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_05.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_05.png">&lt;/li>
 &lt;li>完成以上步骤之后，&lt;code>Rust Installer&lt;/code>会继续引导我们完成接下来的步骤
 &lt;ul>
 &lt;li>可以看到，已经识别到了&lt;code>host&lt;/code>, &lt;code>toolchain&lt;/code>等信息
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_06.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_06.png">&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>现在输入&lt;code>2&lt;/code>，并且按下回车（&lt;code>Enter&lt;/code>）确认
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_07.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_07.png">&lt;/li>
 &lt;li>继续回车（&lt;code>Enter&lt;/code>）
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_08.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_08.png">&lt;/li>
 &lt;li>输入&lt;code>nightly&lt;/code>，继续回车（&lt;code>Enter&lt;/code>）
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_09.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_09.png">&lt;/li>
 &lt;li>接下来一直点回车（&lt;code>Enter&lt;/code>）即可，以下是安装过程，耐心等待即可
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_10.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_10.png">&lt;/li>
 &lt;li>命令行窗口提示：&lt;code>Rust is installed now. Great!&lt;/code>，则说明安装成功
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_11.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_11.png">&lt;/li>
 &lt;li>按下回车（&lt;code>Enter&lt;/code>）即可&lt;/li>
 &lt;li>打开&lt;code>Visual Studio Installer&lt;/code>，安装一些必备组件，之后编译项目或者工具的时候需要用到，点击&lt;code>Modify&lt;/code>
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_12.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_12.png">&lt;/li>
 &lt;li>勾选&lt;code>Desktop development with C++&lt;/code>，点击&lt;code>Modify&lt;/code>，之后的弹窗点击&lt;code>Yes&lt;/code>即可
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_13.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_13.png">&lt;/li>
 &lt;li>等待进度条跑满（下载速度能到&lt;code>100MB/s&lt;/code>，使用&lt;code>SSD&lt;/code>的情况下，估计两分钟就完成了）
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_14.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_14.png">&lt;/li>
 &lt;li>安装完成会再次回到这个界面，关闭即可
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rust_install_15.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rust_install_15.png">&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>
 &lt;p>若只是安装&lt;code>Rust&lt;/code>，并且只是用标准库（无法做嵌入式开发），则完成以上步骤即可，但&lt;code>Rust&lt;/code>嵌入式会频繁使用到&lt;a href="https://crates.io/">&lt;code>crates.io&lt;/code>&lt;/a>的一些&lt;code>crate&lt;/code>（理解成其他语言的库/模块），所以还需要配置拉取&lt;code>rsproxy&lt;/code>提供的镜像（一分钟更新一次，可以近似理解为不会过时），具体操作步骤如下&lt;/p>
 &lt;ul>
 &lt;li>按下&lt;code>Win&lt;/code>+&lt;code>E&lt;/code>，打开资源管理器，进入&lt;code>C&lt;/code>盘下的&lt;code>user&lt;/code>目录，进入当前用户目录（我的是&lt;code>Admin&lt;/code>，顺便一提，用户名最好是英文或者数字，不要用中文或者夹杂一些其他符号），继续进入&lt;code>.cargo&lt;/code>目录，如果顺利，你当前的&lt;code>PWD&lt;/code>应该类似是这样的：&lt;code>C:\Users\Admin\.cargo&lt;/code>，紧接着复制&lt;code>rsproxy&lt;/code>主页代码块里的配置文件
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/rsproxy_crates_io.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/rsproxy_crates_io.png">&lt;/li>
 &lt;li>在当前目录下（&lt;code>C:\Users\Admin\.cargo&lt;/code>）新建一个&lt;code>config.toml&lt;/code>文件，将以下&lt;code>toml&lt;/code>配置，粘贴进去（可以新建一个&lt;code>config.txt&lt;/code>文件，将内容粘贴进去后，再将后缀更改为&lt;code>toml&lt;/code>即可）&lt;/li>
 &lt;/ul>
 &lt;/li>
@@ -705,10 +577,10 @@ font-size: 16px;
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>安装以上工具时，会先拉取依赖的&lt;code>crate&lt;/code>，再进行编译，&lt;code>CPU&lt;/code>会瞬间跑满，风扇起飞，给出一个执行&lt;code>cargo install cargo-binstall&lt;/code>的参考
-&lt;img loading="lazy" src="https://rustmcu.com/toolchain-images/tools_compling_process.png">&lt;/li>
+&lt;img loading="lazy" src="http://localhost:1313/toolchain-images/tools_compling_process.png">&lt;/li>
 &lt;/ul>
-&lt;p>综上，搭建了一个基础的&lt;code>Rust&lt;/code>嵌入式开发环境，之后的教程主要使用&lt;code>STM32&lt;/code>, &lt;code>ESP32&lt;/code>, &lt;code>RP2040 Pico, RP2350 Pico2&lt;/code>等&lt;code>MCU&lt;/code>进行演示。&lt;/p></description></item><item><title>Blinky - LED闪烁</title><link>https://rustmcu.com/rp/blinky/</link><pubDate>Thu, 14 Aug 2025 19:00:25 +0800</pubDate><guid>https://rustmcu.com/rp/blinky/</guid><description>&lt;hr></description></item><item><title>00：点亮LED（GPIO）</title><link>https://rustmcu.com/stm32/blinky/</link><pubDate>Thu, 14 Aug 2025 18:39:34 +0800</pubDate><guid>https://rustmcu.com/stm32/blinky/</guid><description>&lt;hr>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/memes/exhausted.jpg">&lt;/p>
+&lt;p>综上，搭建了一个基础的&lt;code>Rust&lt;/code>嵌入式开发环境，之后的教程主要使用&lt;code>STM32&lt;/code>, &lt;code>ESP32&lt;/code>, &lt;code>RP2040 Pico, RP2350 Pico2&lt;/code>等&lt;code>MCU&lt;/code>进行演示。&lt;/p></description></item><item><title>Blinky - LED闪烁</title><link>http://localhost:1313/rp/blinky/</link><pubDate>Thu, 14 Aug 2025 19:00:25 +0800</pubDate><guid>http://localhost:1313/rp/blinky/</guid><description>&lt;hr></description></item><item><title>00：点亮LED（GPIO）</title><link>http://localhost:1313/stm32/blinky/</link><pubDate>Thu, 14 Aug 2025 18:39:34 +0800</pubDate><guid>http://localhost:1313/stm32/blinky/</guid><description>&lt;hr>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/memes/exhausted.jpg">&lt;/p>
 &lt;h1 id="硬件准备">硬件准备&lt;/h1>
 &lt;ul>
 &lt;li>&lt;code>STM32&lt;/code>开发板*1&lt;/li>
@@ -774,12 +646,12 @@ font-size: 16px;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>注意：工程名最好是&lt;code>snake_case&lt;/code>。
-&lt;img loading="lazy" src="https://rustmcu.com/stm32/01-blinky/00_new_project.png">&lt;/p>
+&lt;img loading="lazy" src="http://localhost:1313/stm32/01-blinky/00_new_project.png">&lt;/p>
 &lt;ol start="2">
 &lt;li>使用&lt;code>vscode&lt;/code>打开所创建的工程&lt;/li>
 &lt;/ol>
 &lt;p>工程目录如下图所示，标准的&lt;code>hello world&lt;/code>工程。&lt;/p>
-&lt;p>&lt;img loading="lazy" src="https://rustmcu.com/stm32/01-blinky/01_open_project.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="http://localhost:1313/stm32/01-blinky/01_open_project.png">&lt;/p>
 &lt;h2 id="移植embassy">移植&lt;code>embassy&lt;/code>&lt;/h2>
 &lt;p>参考&lt;code>embassy&lt;/code>仓库的工程进行工程移植，点击跳转&lt;a href="https://github.com/embassy-rs/embassy/tree/main/examples/stm32f4">&lt;code>embassy stm32f4 examples&lt;/code>&lt;/a>&lt;/p>
 &lt;p>在自己的工程根目录里创建两个目录，并且新建文件&lt;/p>
@@ -794,7 +666,7 @@ font-size: 16px;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>将以下图中内容，复制到&lt;code>.cargo/config.toml&lt;/code>里
-&lt;img loading="lazy" src="https://rustmcu.com/stm32/01-blinky/02_embassy_config.png">&lt;/p>
+&lt;img loading="lazy" src="http://localhost:1313/stm32/01-blinky/02_embassy_config.png">&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1

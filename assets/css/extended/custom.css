@@ -52,6 +52,28 @@ header.header {
   z-index: 100;
 }
 
+/* 移动端滚动时隐藏页面标题，防止残留 */
+@media screen and (max-width: 768px) {
+  .post-header,
+  .page-header {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* 确保导航栏完全覆盖下方内容 */
+  header.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg-secondary) !important;
+  }
+
+  /* 为主内容添加足够的上边距 */
+  main.main {
+    padding-top: 0;
+  }
+}
+
 header .nav {
   max-width: 1400px;
   margin: 0 auto;
